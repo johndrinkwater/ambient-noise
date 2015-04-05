@@ -106,10 +106,10 @@ class ANoise(Gtk.Window):
             self.is_playing = True
         # Set new sound
         self.player.set_property('uri', self.noise.get_current_filename())
-        self.sound_menu.song_changed('', '', self.noise.get_name(), self.noise.get_icon())
         # Play
         self.player.set_state(Gst.State.PLAYING)
         self.sound_menu.signal_playing()
+        self.sound_menu.song_changed('', '', self.noise.get_name(), self.noise.get_icon())
     
     def _sound_menu_previous(self):
         """Previous"""
