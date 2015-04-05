@@ -1,6 +1,6 @@
-anoise (0.0.15) trusty; urgency=low
+anoise (0.0.16) trusty; urgency=low
 
-  * Name in sound indicator
+  * Allow basic window for a few Desktop Environments
 
  -- costales <costales.marcos@gmail.com>  Wed, 1 Apr 2015 22:15:31 +0000
 

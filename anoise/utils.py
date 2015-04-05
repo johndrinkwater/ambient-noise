@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# ANoise 0.0.15 (Ambient Noise)
+# ANoise 0.0.16 (Ambient Noise)
 # Copyright (C) 2015 Marcos Alvarez Costales https://launchpad.net/~costales
 #
 # ANoise is free software; you can redistribute it and/or modify
