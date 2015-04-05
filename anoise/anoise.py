@@ -78,6 +78,8 @@ class ANoise(Gtk.Window):
         self.is_playing = not self.is_playing
         return not self.is_playing
     
+    def _play(self):
+        
     def _sound_menu_play(self):
         """Play"""
         self.player.set_state(Gst.State.PLAYING)
@@ -97,10 +99,10 @@ class ANoise(Gtk.Window):
             self.noise.set_next()
         if what == 'previous':
             self.noise.set_previous()
-        # Stop
-        self.player.set_state(Gst.State.READY)
         # From pause?
-        if not self.is_playing:
+        if self.is_playing:
+            self.player.set_state(Gst.State.READY)
+        else:
             self.is_playing = True
         # Set new sound
         self.player.set_property('uri', self.noise.get_current_filename())
@@ -108,7 +110,6 @@ class ANoise(Gtk.Window):
         # Play
         self.player.set_state(Gst.State.PLAYING)
         self.sound_menu.signal_playing()
-        self.noise.set_cfg_current()
     
     def _sound_menu_previous(self):
         """Previous"""

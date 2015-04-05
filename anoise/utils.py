@@ -81,12 +81,14 @@ class Noise:
         self.current = self.current + 1
         if self.current > self.max:
             self.current = 0
+        self._set_cfg_current()
         
     def set_previous(self):
         """Previous sound filename"""
         self.current = self.current - 1
         if self.current < 0:
             self.current = self.max
+        self._set_cfg_current()
         
     def get_name(self):
         """Get the name for set as Title in sound indicator"""
@@ -112,7 +114,7 @@ class Noise:
             pass
         return current
         
-    def set_cfg_current(self):
+    def _set_cfg_current(self):
         cfg_file = open(self.CFG_FILE, "w")
         cfg_file.write(str(self.current))
         cfg_file.close()
