@@ -1,0 +1,58 @@
+# Polish translation for anoise
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
+# This file is distributed under the same license as the anoise package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: anoise\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-04-03 12:05+0200\n"
+"PO-Revision-Date: 2015-04-05 08:13+0000\n"
+"Last-Translator: Beniamin Pawlus <webdesajner@gmail.com>\n"
+"Language-Team: Polish <pl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2015-04-05 14:40+0000\n"
+"X-Generator: Launchpad (build 17413)\n"
+
+#: ../anoise/anoise.py:125
+msgid "Coffee Shop"
+msgstr "Kawiarnia"
+
+#: ../anoise/anoise.py:125
+msgid "Fire"
+msgstr "Ogień"
+
+#: ../anoise/anoise.py:125
+msgid "Forest"
+msgstr "Las"
+
+#: ../anoise/anoise.py:125
+msgid "Night"
+msgstr "Noc"
+
+#: ../anoise/anoise.py:125
+msgid "Rain"
+msgstr "Deszcz"
+
+#: ../anoise/anoise.py:125
+msgid "Sea"
+msgstr "Morze"
+
+#: ../anoise/anoise.py:125
+msgid "Storm"
+msgstr "Burza"
+
+#: ../anoise/anoise.py:125
+msgid "Wind"
+msgstr "Wiatr"
+
+#: ../anoise.desktop.in.h:1
+msgid "Ambient Noise"
+msgstr "Dźwięki otoczenia"
+
+#: ../anoise.desktop.in.h:2
+msgid "Ambient Noise Player"
+msgstr "Odtwarzacz dźwięków otoczenia"
