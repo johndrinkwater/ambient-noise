@@ -16,7 +16,7 @@
 # along with ANoise; if not, see http://www.gnu.org/licenses
 # for more information.
 
-import webbrowser, subprocess, sys, gettext, threading
+import webbrowser, subprocess, sys, threading
 from gi.repository import Gtk, GObject, Gst
 from dbus.mainloop.glib import DBusGMainLoop
 from utils import *
@@ -27,6 +27,7 @@ except ImportError:
     pass
 
 # i18n
+import gettext
 gettext.textdomain('anoise')
 _ = gettext.gettext
 

@@ -17,6 +17,10 @@
 # for more information.
 
 import os, glob, sys, shutil, socket
+# i18n
+import gettext
+gettext.textdomain('anoise')
+_ = gettext.gettext
 
 
 class Lock:
@@ -95,7 +99,7 @@ class Noise:
         filename = os.path.basename(self.get_current_filename())
         filename = filename.replace('.ogg', '').replace('_', ' ')
         filename = filename.title()
-        return filename
+        return _(filename)
     
     def get_icon(self):
         """Get the name for set as Title in sound indicator"""
