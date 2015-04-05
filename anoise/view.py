@@ -26,8 +26,9 @@ class ExtraWindow:
         builder = Gtk.Builder()
         
         builder.add_from_file('/usr/share/anoise/anoise.ui')
-        self.win_icon = builder.get_object('icon_noise')
-        self.btn_play = builder.get_object('btn_play')
+        self.win_icon  = builder.get_object('icon_noise')
+        self.btn_play  = builder.get_object('btn_play')
+        self.lbl_title = builder.get_object('lbl_title')
         builder.connect_signals(self)
         self.window = builder.get_object('main_win')
         self.window.show_all()
@@ -36,6 +37,7 @@ class ExtraWindow:
     def _set_window_icon(self):
         self.window.set_icon_from_file(self.player.noise.get_icon().replace('file://', ''))
         self.win_icon.set_from_file(self.player.noise.get_icon().replace('file://', ''))
+        self.lbl_title.set_text(self.player.noise.get_name())
     
     def on_btn_previous_clicked(self, widget, data=None):
         self.player._set_new_play('previous')
