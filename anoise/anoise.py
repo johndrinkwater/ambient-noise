@@ -61,12 +61,7 @@ class ANoise(Gtk.Window):
         self.sound_menu._sound_menu_raise      = self._sound_menu_raise
         
         # Autostart when click on sound indicator icon
-        self._sound_menu_is_playing()
-        self._sound_menu_play()
-        threading.Timer(1, self._set_album_after_start).start()
-    
-    def _set_album_after_start(self):
-        self.sound_menu.signal_playing()
+        threading.Timer(1, self._sound_menu_play).start()
     
     def _loop(self, bus, message):
         """Start again the same sound in the EOS"""
@@ -78,13 +73,11 @@ class ANoise(Gtk.Window):
         self.is_playing = not self.is_playing
         return not self.is_playing
     
-    def _play(self):
-        
     def _sound_menu_play(self):
         """Play"""
+        self.sound_menu.song_changed('', '', self.noise.get_name(), self.noise.get_icon())
         self.player.set_state(Gst.State.PLAYING)
         self.sound_menu.signal_playing()
-        self.sound_menu.song_changed('', '', self.noise.get_name(), self.noise.get_icon())
     
     def _sound_menu_pause(self):
         """Pause"""
@@ -100,16 +93,13 @@ class ANoise(Gtk.Window):
         if what == 'previous':
             self.noise.set_previous()
         # From pause?
-        if self.is_playing:
-            self.player.set_state(Gst.State.READY)
-        else:
+        self.player.set_state(Gst.State.READY)
+        if not self.is_playing:
             self.is_playing = True
         # Set new sound
         self.player.set_property('uri', self.noise.get_current_filename())
         # Play
-        self.player.set_state(Gst.State.PLAYING)
-        self.sound_menu.signal_playing()
-        self.sound_menu.song_changed('', '', self.noise.get_name(), self.noise.get_icon())
+        self._sound_menu_play()
     
     def _sound_menu_previous(self):
         """Previous"""
