@@ -1,6 +1,7 @@
 anoise (0.0.16) trusty; urgency=low
 
   * Allow basic window for a few Desktop Environments
+  * Languages: Polish, Finnish, Spanish & Albanian
 
- -- costales <costales.marcos@gmail.com>  Wed, 1 Apr 2015 22:15:31 +0000
+ -- costales <costales.marcos@gmail.com>  Wed, 1 Apr 2015 22:16:31 +0000
 
