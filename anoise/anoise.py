@@ -16,10 +16,10 @@
 # along with ANoise; if not, see http://www.gnu.org/licenses
 # for more information.
 
-
+import webbrowser, subprocess, sys, gettext, threading
 from gi.repository import Gtk, GObject, Gst
 from dbus.mainloop.glib import DBusGMainLoop
-import os, glob, webbrowser, subprocess, socket, sys, gettext, shutil, threading
+from utils import *
 from sound_menu import SoundMenuControls
 
 # i18n
@@ -27,100 +27,23 @@ gettext.textdomain('anoise')
 _ = gettext.gettext
 
 
-class Sounds:
-    def __init__(self):
-        self.CFG_DIR   = os.path.join(os.getenv('HOME'), '.config', 'anoise')
-        self.CFG_FILE  = os.path.join(self.CFG_DIR, 'anoise.cfg')
-        if not os.path.exists(self.CFG_DIR):
-            try:
-                os.makedirs(self.CFG_DIR)
-            except OSError as exception:
-                pass
-            except:
-                pass
-        
-        self.refresh_all_ogg()
-    
-    def refresh_all_ogg(self):
-        """Get all current files in sounds paths"""
-        self.all_files = []
-        # Global
-        sound_files = os.path.join(os.path.split(os.path.abspath(__file__))[0], 'sounds', '*.ogg')
-        available_sounds = glob.glob(sound_files)
-        for sound in available_sounds:
-            self.all_files.append(sound)
-        # Local
-        sound_files = os.path.join(os.getenv('HOME'), 'ANoise', '*.ogg')
-        available_sounds = glob.glob(sound_files)
-        for sound in available_sounds:
-            self.all_files.append(sound)
-        
-        if not len(self.all_files):
-            sys.exit('Not noise files found')
-        
-        self.max = len(self.all_files) - 1
-        self.current = self._get_cfg_last(self.max)
-        if self.current > self.max:
-            self.current = 0
-    
-    def get_current_filename(self):
-        """Get current sound filename"""
-        dirname = os.path.split(os.path.abspath(__file__))[0]
-        filename = os.path.join(dirname, self.all_files[self.current])
-        filename = ''.join(['file://', filename])
-        return filename
-        
-    def set_next(self):
-        """Next sound filename"""
-        self.current = self.current + 1
-        if self.current > self.max:
-            self.current = 0
-        
-    def set_previous(self):
-        """Previous sound filename"""
-        self.current = self.current - 1
-        if self.current < 0:
-            self.current = self.max
-        
-    def get_name(self):
-        """Get the name for set as Title in sound indicator"""
-        filename = os.path.basename(self.get_current_filename())
-        filename = filename.replace('.ogg', '').replace('_', ' ')
-        filename = filename.title()
-        return _(filename)
-    
-    def get_icon(self):
-        """Get the name for set as Title in sound indicator"""
-        filename = self.get_current_filename()
-        filename = filename.replace('.ogg', '.png')
-        return filename
-    
-    def _get_cfg_last(self, max):
-        current = 0
-        try:
-            with open (self.CFG_FILE, "r") as myfile:
-                current=int(myfile.readlines()[0])
-                if current > max:
-                    current = 0
-        except:
-            pass
-        return current
-        
-    def set_cfg_current(self):
-        cfg_file = open(self.CFG_FILE, "w")
-        cfg_file.write(str(self.current))
-        cfg_file.close()
-
-
 class ANoise(Gtk.Window):
     """Control the sound indicator"""
     def __init__(self):
-        Gtk.Window.__init__(self, title="ANoise")
+        # These 3 are need
+        GObject.threads_init()
+        DBusGMainLoop(set_as_default=True)
+        Gst.init(None)
+        
+        win = Gtk.Window()
+        win.connect("delete-event", Gtk.main_quit)
+        win.show_all() # For debug
+
         self.sound_menu = SoundMenuControls('anoise')
-        self.sounds = Sounds()
+        self.noise = Noise()
         
         self.player = Gst.ElementFactory.make("playbin", "player")
-        self.player.set_property('uri', self.sounds.get_current_filename())
+        self.player.set_property('uri', self.noise.get_current_filename())
         self.is_playing = False
         
         dummy_i18n = (_("Coffee Shop"), _("Fire"), _("Forest"), _("Night"), _("Rain"), _("Sea"), _("Storm"), _("Wind")) # Need i18n
@@ -159,7 +82,7 @@ class ANoise(Gtk.Window):
         """Play"""
         self.player.set_state(Gst.State.PLAYING)
         self.sound_menu.signal_playing()
-        self.sound_menu.song_changed('', '', self.sounds.get_name(), self.sounds.get_icon())
+        self.sound_menu.song_changed('', '', self.noise.get_name(), self.noise.get_icon())
     
     def _sound_menu_pause(self):
         """Pause"""
@@ -168,24 +91,24 @@ class ANoise(Gtk.Window):
     
     def _set_new_play(self, what):
         """Next or Previous"""
-        self.sounds.refresh_all_ogg()
+        self.noise.refresh_all_ogg()
         # Get Next/Previous
         if what == 'next':
-            self.sounds.set_next()
+            self.noise.set_next()
         if what == 'previous':
-            self.sounds.set_previous()
+            self.noise.set_previous()
         # Stop
         self.player.set_state(Gst.State.READY)
         # From pause?
         if not self.is_playing:
             self.is_playing = True
         # Set new sound
-        self.player.set_property('uri', self.sounds.get_current_filename())
-        self.sound_menu.song_changed('', '', self.sounds.get_name(), self.sounds.get_icon())
+        self.player.set_property('uri', self.noise.get_current_filename())
+        self.sound_menu.song_changed('', '', self.noise.get_name(), self.noise.get_icon())
         # Play
         self.player.set_state(Gst.State.PLAYING)
         self.sound_menu.signal_playing()
-        self.sounds.set_cfg_current()
+        self.noise.set_cfg_current()
     
     def _sound_menu_previous(self):
         """Previous"""
@@ -202,21 +125,6 @@ class ANoise(Gtk.Window):
 
 
 if __name__ == "__main__":
-    # 1 Instance
-    global lock_socket
-    lock_socket = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
-    try:
-        lock_socket.bind('\0' + 'anoise_running') # Lock
-    except socket.error:
-        sys.exit() # Was locked before
-    
-    GObject.threads_init()
-    DBusGMainLoop(set_as_default=True)
-    Gst.init(None)
-    
-    win = ANoise()
-    win.connect("delete-event", Gtk.main_quit)
-    win.hide()
-    #win.show_all() # For debug
+    Lock()
+    anoise = ANoise()
     Gtk.main()
-
