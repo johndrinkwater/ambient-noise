@@ -21,6 +21,10 @@ from gi.repository import Gtk, GObject, Gst
 from dbus.mainloop.glib import DBusGMainLoop
 from utils import *
 from sound_menu import SoundMenuControls
+try:
+    from view import ExtraWindow
+except ImportError:
+    pass
 
 # i18n
 gettext.textdomain('anoise')
@@ -35,16 +39,18 @@ class ANoise(Gtk.Window):
         DBusGMainLoop(set_as_default=True)
         Gst.init(None)
         
-        win = Gtk.Window()
-        win.connect("delete-event", Gtk.main_quit)
-        win.show_all() # For debug
-
         self.sound_menu = SoundMenuControls('anoise')
         self.noise = Noise()
         
+        # Installed package for extra window? Need in a few DE
+        try:
+            self.window = ExtraWindow(self)
+        except:
+            pass
+        
         self.player = Gst.ElementFactory.make("playbin", "player")
         self.player.set_property('uri', self.noise.get_current_filename())
-        self.is_playing = False
+        self.is_playing = True
         
         dummy_i18n = (_("Coffee Shop"), _("Fire"), _("Forest"), _("Night"), _("Rain"), _("Sea"), _("Storm"), _("Wind")) # Need i18n
         
