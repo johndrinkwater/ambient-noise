@@ -53,7 +53,7 @@ class ANoise(Gtk.Window):
         self.player.set_property('uri', self.noise.get_current_filename())
         self.is_playing = True
         
-        dummy_i18n = (_("Coffee Shop"), _("Fire"), _("Forest"), _("Night"), _("Rain"), _("Sea"), _("Storm"), _("Wind")) # Need i18n
+        dummy_i18n = (_("Coffee Shop"), _("Fire"), _("Forest"), _("Night"), _("Rain"), _("River"), _("Sea"), _("Storm"), _("Wind")) # Need i18n
         
         self.bus = self.player.get_bus()
         self.bus.add_signal_watch()
