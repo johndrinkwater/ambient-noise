@@ -7,52 +7,56 @@ msgid ""
 msgstr ""
 "Project-Id-Version: anoise\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-04-03 12:05+0200\n"
-"PO-Revision-Date: 2015-04-02 13:12+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-04-06 19:19+0200\n"
+"PO-Revision-Date: 2015-04-06 17:18+0000\n"
+"Last-Translator: Sergey Mamontov <terra-the@ya.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-05 14:40+0000\n"
+"X-Launchpad-Export-Date: 2015-04-06 17:48+0000\n"
 "X-Generator: Launchpad (build 17413)\n"
 
-#: ../anoise/anoise.py:125
+#: ../anoise/anoise.py:56
 msgid "Coffee Shop"
-msgstr ""
+msgstr "Кофе"
 
-#: ../anoise/anoise.py:125
+#: ../anoise/anoise.py:56
 msgid "Fire"
 msgstr ""
 
-#: ../anoise/anoise.py:125
+#: ../anoise/anoise.py:56
 msgid "Forest"
-msgstr ""
+msgstr "Лес"
 
-#: ../anoise/anoise.py:125
+#: ../anoise/anoise.py:56
 msgid "Night"
-msgstr ""
+msgstr "Ночь"
 
-#: ../anoise/anoise.py:125
+#: ../anoise/anoise.py:56
 msgid "Rain"
+msgstr "Дождь"
+
+#: ../anoise/anoise.py:56
+msgid "River"
 msgstr ""
 
-#: ../anoise/anoise.py:125
+#: ../anoise/anoise.py:56
 msgid "Sea"
-msgstr ""
+msgstr "Море"
 
-#: ../anoise/anoise.py:125
+#: ../anoise/anoise.py:56
 msgid "Storm"
-msgstr ""
+msgstr "Шторм"
 
-#: ../anoise/anoise.py:125
+#: ../anoise/anoise.py:56
 msgid "Wind"
-msgstr ""
+msgstr "Ветер"
 
 #: ../anoise.desktop.in.h:1
 msgid "Ambient Noise"
-msgstr ""
+msgstr "Шум"
 
 #: ../anoise.desktop.in.h:2
 msgid "Ambient Noise Player"
-msgstr ""
+msgstr "Помехи"

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# ANoise 0.0.16 (Ambient Noise)
+# ANoise 0.0.17 (Ambient Noise)
 # Copyright (C) 2015 Marcos Alvarez Costales https://launchpad.net/~costales
 #
 # ANoise is free software; you can redistribute it and/or modify
@@ -68,7 +68,7 @@ class ANoise(Gtk.Window):
         self.sound_menu._sound_menu_raise      = self._sound_menu_raise
         
         # Autostart when click on sound indicator icon
-        threading.Timer(1, self._sound_menu_play).start()
+        threading.Timer(2, self._sound_menu_play).start()
     
     def _loop(self, bus, message):
         """Start again the same sound in the EOS"""
@@ -77,17 +77,18 @@ class ANoise(Gtk.Window):
     
     def _sound_menu_is_playing(self):
         """Called in the first click"""
-        self.is_playing = not self.is_playing
-        return not self.is_playing
+        return self.is_playing
     
     def _sound_menu_play(self):
         """Play"""
+        self.is_playing = True # Need to overwrite this for an issue with autstart
         self.sound_menu.song_changed('', '', self.noise.get_name(), self.noise.get_icon())
         self.player.set_state(Gst.State.PLAYING)
         self.sound_menu.signal_playing()
     
     def _sound_menu_pause(self):
         """Pause"""
+        self.is_playing = False # Need to overwrite this for an issue with autstart
         self.player.set_state(Gst.State.PAUSED)
         self.sound_menu.signal_paused()
     

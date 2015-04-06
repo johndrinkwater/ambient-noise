@@ -1,4 +1,4 @@
-# Finnish translation for anoise
+# Turkish translation for anoise
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the anoise package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: anoise\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-04-06 19:19+0200\n"
-"PO-Revision-Date: 2015-04-05 14:50+0000\n"
-"Last-Translator: Jiri Grönroos <Unknown>\n"
-"Language-Team: Finnish <fi@li.org>\n"
+"PO-Revision-Date: 2015-04-06 17:46+0000\n"
+"Last-Translator: Özgür BASKIN <Unknown>\n"
+"Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,23 +19,23 @@ msgstr ""
 
 #: ../anoise/anoise.py:56
 msgid "Coffee Shop"
-msgstr "Kahvila"
+msgstr "Kafeterya"
 
 #: ../anoise/anoise.py:56
 msgid "Fire"
-msgstr "Nuotio"
+msgstr "Ateş"
 
 #: ../anoise/anoise.py:56
 msgid "Forest"
-msgstr "Metsä"
+msgstr "Orman"
 
 #: ../anoise/anoise.py:56
 msgid "Night"
-msgstr "Yö"
+msgstr "Gece"
 
 #: ../anoise/anoise.py:56
 msgid "Rain"
-msgstr "Sade"
+msgstr "Yağmur"
 
 #: ../anoise/anoise.py:56
 msgid "River"
@@ -43,20 +43,20 @@ msgstr ""
 
 #: ../anoise/anoise.py:56
 msgid "Sea"
-msgstr "Meri"
+msgstr "Deniz"
 
 #: ../anoise/anoise.py:56
 msgid "Storm"
-msgstr "Myrsky"
+msgstr "Fırtına"
 
 #: ../anoise/anoise.py:56
 msgid "Wind"
-msgstr "Tuuli"
+msgstr "Rüzgar"
 
 #: ../anoise.desktop.in.h:1
 msgid "Ambient Noise"
-msgstr "Taustaääni"
+msgstr "Ortam Sesleri"
 
 #: ../anoise.desktop.in.h:2
 msgid "Ambient Noise Player"
-msgstr "Taustaäänien soitin"
+msgstr "Ortam Sesleri Çalıcı"
