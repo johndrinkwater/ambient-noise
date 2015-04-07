@@ -32,7 +32,7 @@ gettext.textdomain('anoise')
 _ = gettext.gettext
 
 
-class ANoise(Gtk.Window):
+class ANoise:
     """Control the sound indicator"""
     def __init__(self):
         # These 3 are need

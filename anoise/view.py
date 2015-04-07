@@ -35,8 +35,12 @@ class ExtraWindow:
         self._set_window_icon()
     
     def _set_window_icon(self):
-        self.window.set_icon_from_file(self.player.noise.get_icon().replace('file://', ''))
-        self.win_icon.set_from_file(self.player.noise.get_icon().replace('file://', ''))
+        try:
+            self.window.set_icon_from_file(self.player.noise.get_icon().replace('file://', ''))
+            self.win_icon.set_from_file(self.player.noise.get_icon().replace('file://', ''))
+        except:
+            self.window.set_icon_from_file('/usr/share/icons/hicolor/48x48/apps/anoise.png')
+            self.win_icon.set_from_file('/usr/share/icons/hicolor/48x48/apps/anoise.png')
         self.lbl_title.set_text(self.player.noise.get_name())
     
     def on_btn_previous_clicked(self, widget, data=None):

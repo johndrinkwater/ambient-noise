@@ -55,16 +55,17 @@ class Noise:
         """Get all current files in sounds paths"""
         self.all_files = []
         # Global
-        sound_files = os.path.join(os.path.split(os.path.abspath(__file__))[0], 'sounds', '*.ogg')
+        sound_files = os.path.join(os.path.split(os.path.abspath(__file__))[0], 'sounds', '*.*')
         available_sounds = glob.glob(sound_files)
         for sound in available_sounds:
-            self.all_files.append(sound)
+            if sound[-4:].lower() in '.ogg.mp3.wav':
+                self.all_files.append(sound)
         # Local
-        sound_files = os.path.join(os.getenv('HOME'), 'ANoise', '*.ogg')
+        sound_files = os.path.join(os.getenv('HOME'), 'ANoise', '*.*')
         available_sounds = glob.glob(sound_files)
         for sound in available_sounds:
-            self.all_files.append(sound)
-        
+            if sound[-4:].lower() in '.ogg.mp3.wav':
+                self.all_files.append(sound)
         if not len(self.all_files):
             sys.exit('Not noise files found')
         
@@ -96,15 +97,15 @@ class Noise:
         
     def get_name(self):
         """Get the name for set as Title in sound indicator"""
-        filename = os.path.basename(self.get_current_filename())
-        filename = filename.replace('.ogg', '').replace('_', ' ')
+        filename = os.path.basename(self.get_current_filename()[:-4])
+        filename = filename.replace('_', ' ')
         filename = filename.title()
         return _(filename)
     
     def get_icon(self):
         """Get the name for set as Title in sound indicator"""
-        filename = self.get_current_filename()
-        filename = filename.replace('.ogg', '.png')
+        filename = self.get_current_filename()[:-4]
+        filename = '.'.join([filename, 'png'])
         return filename
     
     def _get_cfg_last(self, max):
