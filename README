@@ -24,10 +24,9 @@ python-gst0.10
 
 WHAT IS NEW?
 ============
-  * Added depedence gir1.2-gtk-3.0
-  * Allow mp3 & wav
-  * Fixed find file with no lowercase
+  * No gap in loop
   * Updated languages
+
 
 
 

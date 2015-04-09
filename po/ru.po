@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: anoise\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-04-06 19:53+0200\n"
-"PO-Revision-Date: 2015-04-06 17:18+0000\n"
-"Last-Translator: Sergey Mamontov <terra-the@ya.ru>\n"
+"PO-Revision-Date: 2015-04-09 10:54+0000\n"
+"Last-Translator: Цымбарович Петр <mentaljam119@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-07 17:12+0000\n"
+"X-Launchpad-Export-Date: 2015-04-09 16:16+0000\n"
 "X-Generator: Launchpad (build 17413)\n"
 
 #: ../anoise/anoise.py:56
@@ -23,7 +23,7 @@ msgstr "Кофе"
 
 #: ../anoise/anoise.py:56
 msgid "Fire"
-msgstr ""
+msgstr "Огонь"
 
 #: ../anoise/anoise.py:56
 msgid "Forest"
@@ -39,7 +39,7 @@ msgstr "Дождь"
 
 #: ../anoise/anoise.py:56
 msgid "River"
-msgstr ""
+msgstr "Река"
 
 #: ../anoise/anoise.py:56
 msgid "Sea"

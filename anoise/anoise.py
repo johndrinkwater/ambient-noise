@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# ANoise 0.0.18 (Ambient Noise)
+# ANoise 0.0.19 (Ambient Noise)
 # Copyright (C) 2015 Marcos Alvarez Costales https://launchpad.net/~costales
 #
 # ANoise is free software; you can redistribute it and/or modify
@@ -16,7 +16,7 @@
 # along with ANoise; if not, see http://www.gnu.org/licenses
 # for more information.
 
-import webbrowser, subprocess, sys, threading
+import webbrowser, threading
 from gi.repository import Gtk, GObject, Gst
 from dbus.mainloop.glib import DBusGMainLoop
 from utils import *
@@ -50,14 +50,12 @@ class ANoise:
             pass
         
         self.player = Gst.ElementFactory.make("playbin", "player")
+        self.player.connect("about-to-finish", self._loop)
+        
         self.player.set_property('uri', self.noise.get_current_filename())
         self.is_playing = True
         
         dummy_i18n = (_("Coffee Shop"), _("Fire"), _("Forest"), _("Night"), _("Rain"), _("River"), _("Sea"), _("Storm"), _("Wind")) # Need i18n
-        
-        self.bus = self.player.get_bus()
-        self.bus.add_signal_watch()
-        self.bus.connect("message::eos", self._loop)
         
         # Overwrite libraty methods
         self.sound_menu._sound_menu_is_playing = self._sound_menu_is_playing
@@ -70,10 +68,9 @@ class ANoise:
         # Autostart when click on sound indicator icon
         threading.Timer(2, self._sound_menu_play).start()
     
-    def _loop(self, bus, message):
+    def _loop(self, message):
         """Start again the same sound in the EOS"""
-        self.player.set_state(Gst.State.READY)
-        self.player.set_state(Gst.State.PLAYING)
+        self.player.set_property('uri', self.noise.get_current_filename())
     
     def _sound_menu_is_playing(self):
         """Called in the first click"""

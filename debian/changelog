@@ -1,8 +1,6 @@
-anoise (0.0.18) trusty; urgency=low
+anoise (0.0.19) trusty; urgency=low
 
-  * Added depedence gir1.2-gtk-3.0
-  * Allow mp3 & wav
-  * Fixed find file with no lowercase
+  * No gap in loop
   * Updated languages
 
  -- costales <costales.marcos@gmail.com>  Wed, 1 Apr 2015 22:19:31 +0000
