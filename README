@@ -19,12 +19,14 @@ From the code (take a look to the dependencies):
 DEPENDENCIES
 ============
 python-gst0.10
+gir1.2-gstreamer-0.10
+gir1.2-gtk-3.0
 
 
 
 WHAT IS NEW?
 ============
-  * No gap in loop
+  * Gst needs playbin2 in Kubuntu
   * Updated languages
 
 

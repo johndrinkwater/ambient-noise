@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# ANoise 0.0.19 (Ambient Noise)
+# ANoise 0.0.20 (Ambient Noise)
 # Copyright (C) 2015 Marcos Alvarez Costales https://launchpad.net/~costales
 #
 # ANoise is free software; you can redistribute it and/or modify
@@ -16,6 +16,7 @@
 # along with ANoise; if not, see http://www.gnu.org/licenses
 # for more information.
 
+import gi
 import webbrowser, threading
 from gi.repository import Gtk, GObject, Gst
 from dbus.mainloop.glib import DBusGMainLoop
@@ -30,6 +31,15 @@ except ImportError:
 import gettext
 gettext.textdomain('anoise')
 _ = gettext.gettext
+
+# playbin breaks in Kubuntu 14.04 > Needs Gst 0.10
+try:
+    gi.require_version('Gst', '1.0')
+except:
+    gi.require_version('Gst', '0.10')
+    PLAYBIN = "playbin2"
+else:
+    PLAYBIN = "playbin"
 
 
 class ANoise:
@@ -49,7 +59,7 @@ class ANoise:
         except:
             pass
         
-        self.player = Gst.ElementFactory.make("playbin", "player")
+        self.player = Gst.ElementFactory.make(PLAYBIN, "player")
         self.player.connect("about-to-finish", self._loop)
         
         self.player.set_property('uri', self.noise.get_current_filename())

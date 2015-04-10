@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: anoise\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-04-06 19:53+0200\n"
-"PO-Revision-Date: 2015-04-06 17:18+0000\n"
-"Last-Translator: fri <pavelfric@seznam.cz>\n"
+"PO-Revision-Date: 2015-04-10 14:03+0000\n"
+"Last-Translator: Petr Šimáček <petr.simacek@gmail.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-09 16:16+0000\n"
-"X-Generator: Launchpad (build 17413)\n"
+"X-Launchpad-Export-Date: 2015-04-10 14:04+0000\n"
+"X-Generator: Launchpad (build 17423)\n"
 
 #: ../anoise/anoise.py:56
 msgid "Coffee Shop"
@@ -39,7 +39,7 @@ msgstr "Déšť"
 
 #: ../anoise/anoise.py:56
 msgid "River"
-msgstr ""
+msgstr "Řeka"
 
 #: ../anoise/anoise.py:56
 msgid "Sea"

@@ -1,7 +1,7 @@
-anoise (0.0.19) trusty; urgency=low
+anoise (0.0.20) trusty; urgency=low
 
-  * No gap in loop
+  * Gst needs playbin2 in Kubuntu
   * Updated languages
 
- -- costales <costales.marcos@gmail.com>  Wed, 1 Apr 2015 22:19:31 +0000
+ -- costales <costales.marcos@gmail.com>  Fri, 10 Apr 2015 16:04:31 +0000
 
