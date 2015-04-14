@@ -79,6 +79,8 @@ class Noise:
         if not len(self.all_files):
             sys.exit('Not noise files found')
         
+        self.all_files = sorted(self.all_files)
+        
         self.max = len(self.all_files) - 1
         self.current = self._get_cfg_last(self.max)
         if self.current > self.max:
