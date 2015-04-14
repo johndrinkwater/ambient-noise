@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-06 19:53+0200\n"
+"POT-Creation-Date: 2015-04-14 21:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,39 +17,39 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../anoise/anoise.py:56
+#: ../anoise/anoise.py:68
 msgid "Coffee Shop"
 msgstr ""
 
-#: ../anoise/anoise.py:56
+#: ../anoise/anoise.py:68
 msgid "Fire"
 msgstr ""
 
-#: ../anoise/anoise.py:56
+#: ../anoise/anoise.py:68
 msgid "Forest"
 msgstr ""
 
-#: ../anoise/anoise.py:56
+#: ../anoise/anoise.py:68
 msgid "Night"
 msgstr ""
 
-#: ../anoise/anoise.py:56
+#: ../anoise/anoise.py:68
 msgid "Rain"
 msgstr ""
 
-#: ../anoise/anoise.py:56
+#: ../anoise/anoise.py:68
 msgid "River"
 msgstr ""
 
-#: ../anoise/anoise.py:56
+#: ../anoise/anoise.py:68
 msgid "Sea"
 msgstr ""
 
-#: ../anoise/anoise.py:56
+#: ../anoise/anoise.py:68
 msgid "Storm"
 msgstr ""
 
-#: ../anoise/anoise.py:56
+#: ../anoise/anoise.py:68
 msgid "Wind"
 msgstr ""
 
@@ -59,4 +59,46 @@ msgstr ""
 
 #: ../anoise.desktop.in.h:2
 msgid "Ambient Noise Player"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:1
+msgid "Anoise Preferences"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:2
+msgid "Stop in"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:3
+msgid "60"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:4
+msgid "minutes"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:5
+msgid ""
+"Automatically shutdown PC after 60' running this command:\n"
+"sudo shutdown -P 60"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:7
+msgid "Timer:"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:8
+msgid "Autostart with the system"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:9
+msgid "Startup:"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:10
+msgid "Donate?"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:11
+msgid "Thanks in advance!"
 msgstr ""

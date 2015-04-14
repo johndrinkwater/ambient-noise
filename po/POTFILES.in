@@ -3,3 +3,4 @@
 [encoding: UTF-8]
 anoise/anoise.py
 anoise.desktop.in
+[type: gettext/glade]anoise/preferences.ui
