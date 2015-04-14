@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# ANoise 0.0.20 - http://launchpad.net/anoise
+# ANoise 0.0.21 - http://launchpad.net/anoise
 # Copyright (C) 2012-2015 Marcos Alvarez Costales https://launchpad.net/~costales
 #
 # ANoise is free software; you can redistribute it and/or modify
@@ -21,14 +21,15 @@
 import os, sys, glob, DistUtilsExtra.auto
 
 # Create data files
-data = [ ('/usr/share/anoise',                   glob.glob('anoise/*')),
-         ('/usr/share/icons/hicolor/48x48/apps', glob.glob('icons/hicolor/48x48/apps/*.png')),
-         ('/usr/share/icons/hicolor/16x16/apps', glob.glob('icons/hicolor/16x16/apps/*.png'))]
+data = [ ('/usr/share/anoise',                      glob.glob('anoise/*')),
+         ('/usr/share/icons/hicolor/scalable/apps', glob.glob('icons/hicolor/scalable/apps/*.svg')),
+         ('/usr/share/icons/hicolor/48x48/apps',    glob.glob('icons/hicolor/48x48/apps/*.png')),
+         ('/usr/share/icons/hicolor/16x16/apps',    glob.glob('icons/hicolor/16x16/apps/*.png'))]
 
 # Setup stage
 DistUtilsExtra.auto.setup(
     name         = "anoise",
-    version      = "0.0.20",
+    version      = "0.0.21",
     description  = "Ambient Noise",
     author       = "Marcos Alvarez Costales https://launchpad.net/~costales",
     author_email = "https://launchpad.net/~costales",

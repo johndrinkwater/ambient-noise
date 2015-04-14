@@ -1,6 +1,8 @@
-anoise (0.0.20) trusty; urgency=low
+anoise (0.0.21) trusty; urgency=low
 
-  * Gst needs playbin2 in Kubuntu
+  * Fixed #1442350 SleepTimer
+  * Fixed #1443565 Autostart
+  * Added scalable logo
   * Updated languages
 
  -- costales <costales.marcos@gmail.com>  Fri, 10 Apr 2015 16:04:31 +0000

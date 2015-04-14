@@ -26,7 +26,9 @@ gir1.2-gtk-3.0
 
 WHAT IS NEW?
 ============
-  * Gst needs playbin2 in Kubuntu
+  * Fixed #1442350 SleepTimer
+  * Fixed #1443565 Autostart
+  * Added scalable logo
   * Updated languages
 
 

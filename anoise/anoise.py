@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# ANoise 0.0.20 (Ambient Noise)
+# ANoise 0.0.21 (Ambient Noise)
 # Copyright (C) 2015 Marcos Alvarez Costales https://launchpad.net/~costales
 #
 # ANoise is free software; you can redistribute it and/or modify
@@ -16,12 +16,12 @@
 # along with ANoise; if not, see http://www.gnu.org/licenses
 # for more information.
 
-import gi
-import webbrowser, threading
+import gi, os, threading
 from gi.repository import Gtk, GObject, Gst
 from dbus.mainloop.glib import DBusGMainLoop
 from utils import *
 from sound_menu import SoundMenuControls
+from preferences import Preferences
 try:
     from view import ExtraWindow
 except ImportError:
@@ -126,8 +126,17 @@ class ANoise:
     
     def _sound_menu_raise(self):
         """Click on player"""
-        webbrowser.open_new('http://gufw.org/donate_anoise')
-
+        # TODO 1 LAUNCH
+        if not os.path.isfile('/tmp/anoise_preferences'):
+            open('/tmp/anoise_preferences', 'a').close()
+            Preferences(self)
+    
+    def set_timer(self, enable, minutes):
+        if enable:
+            self.timer = threading.Timer(minutes, self._sound_menu_pause)
+            self.timer.start()
+        else:
+            self.timer.cancel()
 
 
 if __name__ == "__main__":

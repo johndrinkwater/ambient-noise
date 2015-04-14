@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# ANoise 0.0.20 (Ambient Noise)
+# ANoise 0.0.21 (Ambient Noise)
 # Copyright (C) 2015 Marcos Alvarez Costales https://launchpad.net/~costales
 #
 # ANoise is free software; you can redistribute it and/or modify
@@ -34,7 +34,11 @@ class Lock:
             lock_socket.bind('\0' + 'anoise_running') # Lock
         except socket.error:
             sys.exit() # Was locked before
-
+        
+        try:
+            os.remove('/tmp/anoise_preferences')
+        except:
+            pass
 
 class Noise:
     """Manage access to noises"""
@@ -66,6 +70,12 @@ class Noise:
         for sound in available_sounds:
             if sound[-4:].lower() in '.ogg.mp3.wav':
                 self.all_files.append(sound)
+        sound_files = os.path.join(os.getenv('HOME'), '.ANoise', '*.*')
+        available_sounds = glob.glob(sound_files)
+        for sound in available_sounds:
+            if sound[-4:].lower() in '.ogg.mp3.wav':
+                self.all_files.append(sound)
+        
         if not len(self.all_files):
             sys.exit('Not noise files found')
         
