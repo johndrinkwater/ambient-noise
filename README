@@ -26,12 +26,7 @@ gir1.2-gtk-3.0
 
 WHAT IS NEW?
 ============
-  * Fixed #1442350 SleepTimer
-  * Fixed #1443565 Autostart
-  * Fixed #1444073 Sort noises
-  * Added scalable logo
-  * Search noises in ~/.ANoise too
-  * GUI for Precise LTS
+  * Sort noises with translations
   * Updated languages
 
 

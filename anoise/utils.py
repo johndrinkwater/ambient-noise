@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# ANoise 0.0.21 (Ambient Noise)
+# ANoise 0.0.22 (Ambient Noise)
 # Copyright (C) 2015 Marcos Alvarez Costales https://launchpad.net/~costales
 #
 # ANoise is free software; you can redistribute it and/or modify
@@ -16,7 +16,7 @@
 # along with ANoise; if not, see http://www.gnu.org/licenses
 # for more information.
 
-import os, glob, sys, shutil, socket
+import os, glob, sys, shutil, socket, operator
 # i18n
 import gettext
 gettext.textdomain('anoise')
@@ -79,7 +79,12 @@ class Noise:
         if not len(self.all_files):
             sys.exit('Not noise files found')
         
-        self.all_files = sorted(self.all_files)
+        self.noises = {}
+        for noise in self.all_files:
+            self.noises[self.get_name(noise)] = noise
+        
+        self.noises = sorted(self.noises.items(), key=operator.itemgetter(0))
+        print(self.noises)
         
         self.max = len(self.all_files) - 1
         self.current = self._get_cfg_last(self.max)
@@ -92,24 +97,27 @@ class Noise:
         filename = os.path.join(dirname, self.all_files[self.current])
         filename = ''.join(['file://', filename])
         return filename
-        
+    
     def set_next(self):
         """Next sound filename"""
         self.current = self.current + 1
         if self.current > self.max:
             self.current = 0
         self._set_cfg_current()
-        
+    
     def set_previous(self):
         """Previous sound filename"""
         self.current = self.current - 1
         if self.current < 0:
             self.current = self.max
         self._set_cfg_current()
-        
-    def get_name(self):
+    
+    def get_name(self, noise=None):
         """Get the name for set as Title in sound indicator"""
-        filename = os.path.basename(self.get_current_filename()[:-4])
+        if noise == None:
+            filename = os.path.basename(self.get_current_filename()[:-4])
+        else:
+            filename = os.path.basename(noise[:-4])
         filename = filename.replace('_', ' ')
         filename = filename.title()
         return _(filename)
@@ -130,7 +138,7 @@ class Noise:
         except:
             pass
         return current
-        
+    
     def _set_cfg_current(self):
         cfg_file = open(self.CFG_FILE, "w")
         cfg_file.write(str(self.current))
