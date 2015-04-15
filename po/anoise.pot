@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-15 19:32+0200\n"
+"POT-Creation-Date: 2015-04-15 20:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,35 +70,31 @@ msgid "Stop in"
 msgstr ""
 
 #: ../anoise/preferences.ui.h:3
-msgid "60"
-msgstr ""
-
-#: ../anoise/preferences.ui.h:4
 msgid "minutes"
 msgstr ""
 
-#: ../anoise/preferences.ui.h:5
+#: ../anoise/preferences.ui.h:4
 msgid ""
 "Automatically shutdown PC after 60' running this command:\n"
 "sudo shutdown -P 60"
 msgstr ""
 
-#: ../anoise/preferences.ui.h:7
+#: ../anoise/preferences.ui.h:6
 msgid "Timer:"
 msgstr ""
 
-#: ../anoise/preferences.ui.h:8
+#: ../anoise/preferences.ui.h:7
 msgid "Autostart with the system"
 msgstr ""
 
-#: ../anoise/preferences.ui.h:9
+#: ../anoise/preferences.ui.h:8
 msgid "Startup:"
 msgstr ""
 
-#: ../anoise/preferences.ui.h:10
+#: ../anoise/preferences.ui.h:9
 msgid "Donate?"
 msgstr ""
 
-#: ../anoise/preferences.ui.h:11
+#: ../anoise/preferences.ui.h:10
 msgid "Thanks in advance!"
 msgstr ""
