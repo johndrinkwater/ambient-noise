@@ -30,6 +30,8 @@ WHAT IS NEW?
   * Fixed #1443565 Autostart
   * Fixed #1444073 Sort noises
   * Added scalable logo
+  * Search noises in ~/.ANoise too
+  * GUI for Precise LTS
   * Updated languages
 
 

@@ -4,7 +4,9 @@ anoise (0.0.21) trusty; urgency=low
   * Fixed #1443565 Autostart
   * Fixed #1444073 Sort noises
   * Added scalable logo
+  * Search noises in ~/.ANoise too
+  * GUI for Precise LTS
   * Updated languages
 
- -- costales <costales.marcos@gmail.com>  Fri, 10 Apr 2015 16:04:31 +0000
+ -- costales <costales.marcos@gmail.com>  Fri, 10 Apr 2015 16:14:31 +0000
 

@@ -38,20 +38,20 @@ class Preferences:
         self.win_preferences = builder.get_object('preferences_win')
         self.adjustment   = builder.get_object('adjustment_timer')
         self.sp_timer     = builder.get_object('spin_timer')
+        self.lbl_minutes  = builder.get_object('lbl_minutes')
         self.cb_sleep     = builder.get_object('cb_timesleep')
         self.cb_autostart = builder.get_object('cb_autostart')
-        self.img_info     = builder.get_object('img_info')
         
-        self._set_initial_values()
-        
-        builder.connect_signals(self)
-        self.win_preferences.show_all()
-    
-    def _set_initial_values(self):
+        # Autostart
         if os.path.isfile(self.AUTOSTART):
             self.cb_autostart.set_active(True)
         else:
             self.cb_autostart.set_active(False)
+        
+        builder.connect_signals(self)
+    
+    def show(self):
+        self.win_preferences.show()
     
     def on_cb_autostart_toggled(self, widget, data=None):
         if self.cb_autostart.get_active():
@@ -65,20 +65,25 @@ class Preferences:
             except:
                 pass
     
+    def set_show_timer(self):
+        if self.cb_sleep.get_active():
+            self.cb_sleep.set_active(False)
+    
     def on_cb_timesleep_toggled(self, widget, data=None):
         seconds = self.sp_timer.get_value_as_int() * 60
         self.sp_timer.set_sensitive(not self.cb_sleep.get_active())
         self.player.set_timer(self.cb_sleep.get_active(), seconds)
         if self.cb_sleep.get_active():
+            self.lbl_minutes.hide()
+            self.sp_timer.hide()
             x = datetime.now() + timedelta(seconds=seconds)
-            msg = ' '.join([_("Noise will stop at"), x.strftime('%H:%M')])
-            self.img_info.set_tooltip_text(msg)
+            msg = ' '.join([_("ANoise will stop at"), x.strftime('%H:%M')])
+            self.cb_sleep.set_label(msg)
         else:
-            self.img_info.set_tooltip_text(_("ANoise will not autostop the current sound"))
+            self.lbl_minutes.show()
+            self.sp_timer.show()
+            self.cb_sleep.set_label(_("Stop in"))
     
     def on_preferences_delete_event(self, widget, data=None):
-        try:
-            os.remove('/tmp/anoise_preferences')
-        except:
-            pass
-        self.win_preferences.destroy()
+        self.win_preferences.hide()
+        return True

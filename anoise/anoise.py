@@ -23,7 +23,7 @@ from utils import *
 from sound_menu import SoundMenuControls
 from preferences import Preferences
 try:
-    from view import ExtraWindow
+    from view import GUI
 except ImportError:
     pass
 
@@ -52,10 +52,11 @@ class ANoise:
         
         self.sound_menu = SoundMenuControls('anoise')
         self.noise = Noise()
+        self.win_preferences = Preferences(self)
         
-        # Installed package for extra window? Need in a few DE
+        # Need in a few DE
         try:
-            self.window = ExtraWindow(self)
+            self.window = GUI(self)
         except:
             pass
         
@@ -126,18 +127,19 @@ class ANoise:
     
     def _sound_menu_raise(self):
         """Click on player"""
-        # TODO 1 LAUNCH
-        if not os.path.isfile('/tmp/anoise_preferences'):
-            open('/tmp/anoise_preferences', 'a').close()
-            Preferences(self)
+        self.win_preferences.show()
     
-    def set_timer(self, enable, minutes):
+    def set_timer(self, enable, seconds):
         if enable:
-            self.timer = threading.Timer(minutes, self._sound_menu_pause)
+            self.timer = threading.Timer(seconds, self._set_future_pause)
             self.timer.start()
         else:
             self.timer.cancel()
-
+    
+    def _set_future_pause(self):
+        self.win_preferences.set_show_timer()
+        self._sound_menu_pause()
+    
 
 if __name__ == "__main__":
     Lock()
