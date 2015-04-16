@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-15 20:10+0200\n"
+"POT-Creation-Date: 2015-04-16 21:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,7 +62,7 @@ msgid "Ambient Noise Player"
 msgstr ""
 
 #: ../anoise/preferences.ui.h:1
-msgid "Anoise Preferences"
+msgid "ANoise Preferences"
 msgstr ""
 
 #: ../anoise/preferences.ui.h:2
@@ -92,9 +92,21 @@ msgid "Startup:"
 msgstr ""
 
 #: ../anoise/preferences.ui.h:9
-msgid "Donate?"
+msgid "Get more sounds"
 msgstr ""
 
 #: ../anoise/preferences.ui.h:10
+msgid "Download more noises in the easiest way!"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:11
+msgid "Noises:"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:12
+msgid "Donate?"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:13
 msgid "Thanks in advance!"
 msgstr ""

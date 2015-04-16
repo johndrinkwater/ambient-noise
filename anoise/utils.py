@@ -16,7 +16,7 @@
 # along with ANoise; if not, see http://www.gnu.org/licenses
 # for more information.
 
-import os, glob, sys, shutil, socket, operator
+import os, glob, sys, socket, operator
 # i18n
 import gettext
 gettext.textdomain('anoise')
@@ -57,45 +57,42 @@ class Noise:
     
     def refresh_all_ogg(self):
         """Get all current files in sounds paths"""
-        self.all_files = []
+        all_files = []
         # Global
         sound_files = os.path.join(os.path.split(os.path.abspath(__file__))[0], 'sounds', '*.*')
         available_sounds = glob.glob(sound_files)
         for sound in available_sounds:
             if sound[-4:].lower() in '.ogg.mp3.wav':
-                self.all_files.append(sound)
+                all_files.append(sound)
         # Local
         sound_files = os.path.join(os.getenv('HOME'), 'ANoise', '*.*')
         available_sounds = glob.glob(sound_files)
         for sound in available_sounds:
             if sound[-4:].lower() in '.ogg.mp3.wav':
-                self.all_files.append(sound)
+                all_files.append(sound)
         sound_files = os.path.join(os.getenv('HOME'), '.ANoise', '*.*')
         available_sounds = glob.glob(sound_files)
         for sound in available_sounds:
             if sound[-4:].lower() in '.ogg.mp3.wav':
-                self.all_files.append(sound)
+                all_files.append(sound)
         
-        if not len(self.all_files):
+        if not len(all_files):
             sys.exit('Not noise files found')
         
         self.noises = {}
-        for noise in self.all_files:
+        for noise in all_files:
             self.noises[self.get_name(noise)] = noise
         
         self.noises = sorted(self.noises.items(), key=operator.itemgetter(0))
-        print(self.noises)
         
-        self.max = len(self.all_files) - 1
+        self.max = len(self.noises) - 1
         self.current = self._get_cfg_last(self.max)
         if self.current > self.max:
             self.current = 0
     
     def get_current_filename(self):
         """Get current sound filename"""
-        dirname = os.path.split(os.path.abspath(__file__))[0]
-        filename = os.path.join(dirname, self.all_files[self.current])
-        filename = ''.join(['file://', filename])
+        filename = ''.join(['file://', self.noises[self.current][1]])
         return filename
     
     def set_next(self):
@@ -113,13 +110,13 @@ class Noise:
         self._set_cfg_current()
     
     def get_name(self, noise=None):
-        """Get the name for set as Title in sound indicator"""
+        """Title for sound indicator"""
         if noise == None:
-            filename = os.path.basename(self.get_current_filename()[:-4])
+            filename = self.noises[self.current][0]
         else:
             filename = os.path.basename(noise[:-4])
-        filename = filename.replace('_', ' ')
-        filename = filename.title()
+            filename = filename.replace('_', ' ')
+            filename = filename.title()
         return _(filename)
     
     def get_icon(self):

@@ -49,9 +49,23 @@ class Preferences:
             self.cb_autostart.set_active(False)
         
         builder.connect_signals(self)
+        
+        self.win_width = self.win_height = 0
+        self._save_window_size()
     
     def show(self):
         self.win_preferences.show()
+    
+    def _restore_window_size(self):
+        self._save_window_size() # Always get the bigger widht
+        self.win_preferences.set_size_request(self.win_width, self.win_height)
+            
+    def _save_window_size(self):
+        width, height = self.win_preferences.get_size()
+        if width > self.win_width:
+            self.win_width = width
+        if height > self.win_height:
+            self.win_height = height
     
     def on_cb_autostart_toggled(self, widget, data=None):
         if self.cb_autostart.get_active():
@@ -79,10 +93,12 @@ class Preferences:
             x = datetime.now() + timedelta(seconds=seconds)
             msg = ' '.join([_("ANoise will stop at"), x.strftime('%H:%M')])
             self.cb_sleep.set_label(msg)
+            self._restore_window_size()
         else:
             self.lbl_minutes.show()
             self.sp_timer.show()
             self.cb_sleep.set_label(_("Stop in"))
+            self._restore_window_size()
     
     def on_preferences_delete_event(self, widget, data=None):
         self.win_preferences.hide()

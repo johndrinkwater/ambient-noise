@@ -11,7 +11,7 @@
   </object>
   <object class="GtkWindow" id="preferences_win">
     <property name="can_focus">False</property>
-    <property name="title" translatable="yes">Anoise Preferences</property>
+    <property name="title" translatable="yes">ANoise Preferences</property>
     <property name="resizable">False</property>
     <property name="window_position">center</property>
     <property name="destroy_with_parent">True</property>
@@ -167,9 +167,49 @@ sudo shutdown -P 60</property>
           </packing>
         </child>
         <child>
+          <object class="GtkFrame" id="frame2">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label_xalign">0</property>
+            <property name="shadow_type">none</property>
+            <child>
+              <object class="GtkAlignment" id="alignment2">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="left_padding">12</property>
+                <child>
+                  <object class="GtkLinkButton" id="url_extranoises">
+                    <property name="label" translatable="yes">Get more sounds</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">Download more noises in the easiest way!</property>
+                    <property name="relief">none</property>
+                    <property name="uri">http://anoise.tuxfamily.org/noises</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel" id="label2">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="margin_bottom">8</property>
+                <property name="label" translatable="yes">Noises:</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
           <object class="GtkBox" id="box3">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="margin_top">18</property>
             <child>
               <object class="GtkLinkButton" id="url_donate">
                 <property name="label" translatable="yes">Donate?</property>
@@ -207,7 +247,8 @@ sudo shutdown -P 60</property>
                 <property name="label">gtk-close</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
+                <property name="is_focus">True</property>
+                <property name="receives_default">False</property>
                 <property name="use_stock">True</property>
                 <signal name="clicked" handler="on_preferences_delete_event" swapped="no"/>
               </object>
@@ -221,7 +262,7 @@ sudo shutdown -P 60</property>
           <packing>
             <property name="expand">False</property>
             <property name="fill">False</property>
-            <property name="position">2</property>
+            <property name="position">3</property>
           </packing>
         </child>
       </object>

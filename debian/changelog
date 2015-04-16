@@ -1,7 +1,9 @@
 anoise (0.0.22) trusty; urgency=low
 
   * Sort noises with translations
+  * Same width preferences window always
+  * Added install extra noises in preferences
   * Updated languages
 
- -- costales <costales.marcos@gmail.com>  Fri, 10 Apr 2015 16:14:31 +0000
+ -- costales <costales.marcos@gmail.com>  Fri, 10 Apr 2015 16:15:31 +0000
 

@@ -27,6 +27,8 @@ gir1.2-gtk-3.0
 WHAT IS NEW?
 ============
   * Sort noises with translations
+  * Same width preferences window always
+  * Added install extra noises in preferences
   * Updated languages
 
 
@@ -38,6 +40,14 @@ ANoise code is licensed under GPL v3.
 http://www.gnu.org/licenses
 
 The sound_menu.py library is licensed under GPL v3
+
+
+The sounds are from the freesound.org web page, remastered by Juan Carlos (http://pragmart.wordpress.com)for ANoise project
+Up to 320kb, resize length, better loop & less package size.
+
+The sound were improved by Gordon VS http://gnome-look.org/usermanager/search.php?username=Prodigal
+Fixed #1443139 Sea track has loud voices, Removed scream into Coffee shop & Better loops for Storm & Rain
+
 
 App icon: CC BY 3.0 https://www.iconfinder.com/icons/352074/circle_outline_play_icon
                     https://www.iconfinder.com/icons/352468/arrow_keyboard_right_icon
