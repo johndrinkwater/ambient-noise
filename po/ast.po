@@ -1,4 +1,4 @@
-# Albanian translation for anoise
+# Asturian translation for anoise
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the anoise package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: anoise\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-04-16 22:23+0200\n"
-"PO-Revision-Date: 2015-04-05 14:50+0000\n"
-"Last-Translator: Indrit Bashkimi <indrit.bashkimi@gmail.com>\n"
-"Language-Team: Albanian <sq@li.org>\n"
+"PO-Revision-Date: 2015-04-09 15:14+0000\n"
+"Last-Translator: costales <Unknown>\n"
+"Language-Team: Asturian <ast@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,47 +19,47 @@ msgstr ""
 
 #: ../anoise/anoise.py:69
 msgid "Coffee Shop"
-msgstr ""
+msgstr "Cafetería"
 
 #: ../anoise/anoise.py:69
 msgid "Fire"
-msgstr "Zjarr"
+msgstr "Fueu"
 
 #: ../anoise/anoise.py:69
 msgid "Forest"
-msgstr "Pyll"
+msgstr "Viesca"
 
 #: ../anoise/anoise.py:69
 msgid "Night"
-msgstr "Natë"
+msgstr "Nueche"
 
 #: ../anoise/anoise.py:69
 msgid "Rain"
-msgstr "Shi"
+msgstr "Lloviu"
 
 #: ../anoise/anoise.py:69
 msgid "River"
-msgstr ""
+msgstr "Ríu"
 
 #: ../anoise/anoise.py:69
 msgid "Sea"
-msgstr "Detë"
+msgstr "Mar"
 
 #: ../anoise/anoise.py:69
 msgid "Storm"
-msgstr "Stuhi"
+msgstr "Truena"
 
 #: ../anoise/anoise.py:69
 msgid "Wind"
-msgstr "Erë"
+msgstr "Vientu"
 
 #: ../anoise.desktop.in.h:1
 msgid "Ambient Noise"
-msgstr ""
+msgstr "Soníu ambiental"
 
 #: ../anoise.desktop.in.h:2
 msgid "Ambient Noise Player"
-msgstr ""
+msgstr "Reproductor de soníu ambiental"
 
 #: ../anoise/preferences.ui.h:1
 msgid "ANoise Preferences"

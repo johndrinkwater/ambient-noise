@@ -1,4 +1,4 @@
-# Albanian translation for anoise
+# Japanese translation for anoise
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the anoise package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: anoise\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-04-16 22:23+0200\n"
-"PO-Revision-Date: 2015-04-05 14:50+0000\n"
-"Last-Translator: Indrit Bashkimi <indrit.bashkimi@gmail.com>\n"
-"Language-Team: Albanian <sq@li.org>\n"
+"PO-Revision-Date: 2015-04-16 09:39+0000\n"
+"Last-Translator: ub <xenolith0bytetestcomgreen@gmail.com>\n"
+"Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,47 +19,47 @@ msgstr ""
 
 #: ../anoise/anoise.py:69
 msgid "Coffee Shop"
-msgstr ""
+msgstr "コーヒーショップ"
 
 #: ../anoise/anoise.py:69
 msgid "Fire"
-msgstr "Zjarr"
+msgstr "炎"
 
 #: ../anoise/anoise.py:69
 msgid "Forest"
-msgstr "Pyll"
+msgstr "森"
 
 #: ../anoise/anoise.py:69
 msgid "Night"
-msgstr "Natë"
+msgstr "夜"
 
 #: ../anoise/anoise.py:69
 msgid "Rain"
-msgstr "Shi"
+msgstr "雨"
 
 #: ../anoise/anoise.py:69
 msgid "River"
-msgstr ""
+msgstr "川"
 
 #: ../anoise/anoise.py:69
 msgid "Sea"
-msgstr "Detë"
+msgstr "海"
 
 #: ../anoise/anoise.py:69
 msgid "Storm"
-msgstr "Stuhi"
+msgstr "嵐"
 
 #: ../anoise/anoise.py:69
 msgid "Wind"
-msgstr "Erë"
+msgstr "風"
 
 #: ../anoise.desktop.in.h:1
 msgid "Ambient Noise"
-msgstr ""
+msgstr "環境音"
 
 #: ../anoise.desktop.in.h:2
 msgid "Ambient Noise Player"
-msgstr ""
+msgstr "環境音プレイヤー"
 
 #: ../anoise/preferences.ui.h:1
 msgid "ANoise Preferences"
@@ -67,29 +67,31 @@ msgstr ""
 
 #: ../anoise/preferences.ui.h:2
 msgid "Stop in"
-msgstr ""
+msgstr "停止"
 
 #: ../anoise/preferences.ui.h:3
 msgid "minutes"
-msgstr ""
+msgstr "分後"
 
 #: ../anoise/preferences.ui.h:4
 msgid ""
 "Automatically shutdown PC after 60' running this command:\n"
 "sudo shutdown -P 60"
 msgstr ""
+"60分後にPCを自動的にシャットダウンするコマンド:\n"
+"sudo shutdown -P 60"
 
 #: ../anoise/preferences.ui.h:6
 msgid "Timer:"
-msgstr ""
+msgstr "タイマー:"
 
 #: ../anoise/preferences.ui.h:7
 msgid "Autostart with the system"
-msgstr ""
+msgstr "自動起動"
 
 #: ../anoise/preferences.ui.h:8
 msgid "Startup:"
-msgstr ""
+msgstr "起動:"
 
 #: ../anoise/preferences.ui.h:9
 msgid "Get more sounds"
@@ -105,8 +107,8 @@ msgstr ""
 
 #: ../anoise/preferences.ui.h:12
 msgid "Donate?"
-msgstr ""
+msgstr "寄付する?"
 
 #: ../anoise/preferences.ui.h:13
 msgid "Thanks in advance!"
-msgstr ""
+msgstr "よろしくお願いします！"

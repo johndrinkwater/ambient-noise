@@ -1,4 +1,4 @@
-# Albanian translation for anoise
+# Persian translation for anoise
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the anoise package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: anoise\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-04-16 22:23+0200\n"
-"PO-Revision-Date: 2015-04-05 14:50+0000\n"
-"Last-Translator: Indrit Bashkimi <indrit.bashkimi@gmail.com>\n"
-"Language-Team: Albanian <sq@li.org>\n"
+"PO-Revision-Date: 2015-04-16 09:40+0000\n"
+"Last-Translator: Hessam Shahpouri <Unknown>\n"
+"Language-Team: Persian <fa@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,47 +19,47 @@ msgstr ""
 
 #: ../anoise/anoise.py:69
 msgid "Coffee Shop"
-msgstr ""
+msgstr "کافی شاپ"
 
 #: ../anoise/anoise.py:69
 msgid "Fire"
-msgstr "Zjarr"
+msgstr "آتش"
 
 #: ../anoise/anoise.py:69
 msgid "Forest"
-msgstr "Pyll"
+msgstr "جنگل"
 
 #: ../anoise/anoise.py:69
 msgid "Night"
-msgstr "Natë"
+msgstr "شب"
 
 #: ../anoise/anoise.py:69
 msgid "Rain"
-msgstr "Shi"
+msgstr "باران"
 
 #: ../anoise/anoise.py:69
 msgid "River"
-msgstr ""
+msgstr "رودخانه"
 
 #: ../anoise/anoise.py:69
 msgid "Sea"
-msgstr "Detë"
+msgstr "دریا"
 
 #: ../anoise/anoise.py:69
 msgid "Storm"
-msgstr "Stuhi"
+msgstr "طوفان"
 
 #: ../anoise/anoise.py:69
 msgid "Wind"
-msgstr "Erë"
+msgstr "باد"
 
 #: ../anoise.desktop.in.h:1
 msgid "Ambient Noise"
-msgstr ""
+msgstr "صداهای محیط"
 
 #: ../anoise.desktop.in.h:2
 msgid "Ambient Noise Player"
-msgstr ""
+msgstr "پخش کننده‌ی اصوات محیط"
 
 #: ../anoise/preferences.ui.h:1
 msgid "ANoise Preferences"

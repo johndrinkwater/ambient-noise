@@ -7,49 +7,49 @@ msgid ""
 msgstr ""
 "Project-Id-Version: anoise\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-04-06 19:53+0200\n"
+"POT-Creation-Date: 2015-04-16 22:23+0200\n"
 "PO-Revision-Date: 2015-04-07 09:36+0000\n"
 "Last-Translator: NaZaR <nazar0704@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-10 14:04+0000\n"
-"X-Generator: Launchpad (build 17423)\n"
+"X-Launchpad-Export-Date: 2015-04-17 05:43+0000\n"
+"X-Generator: Launchpad (build 17430)\n"
 
-#: ../anoise/anoise.py:56
+#: ../anoise/anoise.py:69
 msgid "Coffee Shop"
 msgstr "Кафе"
 
-#: ../anoise/anoise.py:56
+#: ../anoise/anoise.py:69
 msgid "Fire"
 msgstr "Багаття"
 
-#: ../anoise/anoise.py:56
+#: ../anoise/anoise.py:69
 msgid "Forest"
 msgstr "Ліс"
 
-#: ../anoise/anoise.py:56
+#: ../anoise/anoise.py:69
 msgid "Night"
 msgstr "Ніч"
 
-#: ../anoise/anoise.py:56
+#: ../anoise/anoise.py:69
 msgid "Rain"
 msgstr "Дощ"
 
-#: ../anoise/anoise.py:56
+#: ../anoise/anoise.py:69
 msgid "River"
 msgstr "Ріка"
 
-#: ../anoise/anoise.py:56
+#: ../anoise/anoise.py:69
 msgid "Sea"
 msgstr "Море"
 
-#: ../anoise/anoise.py:56
+#: ../anoise/anoise.py:69
 msgid "Storm"
 msgstr "Буря"
 
-#: ../anoise/anoise.py:56
+#: ../anoise/anoise.py:69
 msgid "Wind"
 msgstr "Вітер"
 
@@ -60,3 +60,53 @@ msgstr "Навколишній шум"
 #: ../anoise.desktop.in.h:2
 msgid "Ambient Noise Player"
 msgstr "Плеєр навколишнього шуму"
+
+#: ../anoise/preferences.ui.h:1
+msgid "ANoise Preferences"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:2
+msgid "Stop in"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:3
+msgid "minutes"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:4
+msgid ""
+"Automatically shutdown PC after 60' running this command:\n"
+"sudo shutdown -P 60"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:6
+msgid "Timer:"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:7
+msgid "Autostart with the system"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:8
+msgid "Startup:"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:9
+msgid "Get more sounds"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:10
+msgid "Download more noises in the easiest way!"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:11
+msgid "Noises:"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:12
+msgid "Donate?"
+msgstr ""
+
+#: ../anoise/preferences.ui.h:13
+msgid "Thanks in advance!"
+msgstr ""

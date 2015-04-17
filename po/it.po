@@ -1,4 +1,4 @@
-# Albanian translation for anoise
+# Italian translation for anoise
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the anoise package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: anoise\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-04-16 22:23+0200\n"
-"PO-Revision-Date: 2015-04-05 14:50+0000\n"
-"Last-Translator: Indrit Bashkimi <indrit.bashkimi@gmail.com>\n"
-"Language-Team: Albanian <sq@li.org>\n"
+"PO-Revision-Date: 2015-04-16 09:41+0000\n"
+"Last-Translator: Francesco <fgiardo@gmail.com>\n"
+"Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,47 +19,47 @@ msgstr ""
 
 #: ../anoise/anoise.py:69
 msgid "Coffee Shop"
-msgstr ""
+msgstr "Bar"
 
 #: ../anoise/anoise.py:69
 msgid "Fire"
-msgstr "Zjarr"
+msgstr "Fuoco"
 
 #: ../anoise/anoise.py:69
 msgid "Forest"
-msgstr "Pyll"
+msgstr "Foresta"
 
 #: ../anoise/anoise.py:69
 msgid "Night"
-msgstr "Natë"
+msgstr "Notte"
 
 #: ../anoise/anoise.py:69
 msgid "Rain"
-msgstr "Shi"
+msgstr "Pioggia"
 
 #: ../anoise/anoise.py:69
 msgid "River"
-msgstr ""
+msgstr "Fiume"
 
 #: ../anoise/anoise.py:69
 msgid "Sea"
-msgstr "Detë"
+msgstr "Mare"
 
 #: ../anoise/anoise.py:69
 msgid "Storm"
-msgstr "Stuhi"
+msgstr "Temporale"
 
 #: ../anoise/anoise.py:69
 msgid "Wind"
-msgstr "Erë"
+msgstr "Vento"
 
 #: ../anoise.desktop.in.h:1
 msgid "Ambient Noise"
-msgstr ""
+msgstr "Ambient Noise"
 
 #: ../anoise.desktop.in.h:2
 msgid "Ambient Noise Player"
-msgstr ""
+msgstr "Ambient Noise Player"
 
 #: ../anoise/preferences.ui.h:1
 msgid "ANoise Preferences"
@@ -67,29 +67,31 @@ msgstr ""
 
 #: ../anoise/preferences.ui.h:2
 msgid "Stop in"
-msgstr ""
+msgstr "Ferma tra"
 
 #: ../anoise/preferences.ui.h:3
 msgid "minutes"
-msgstr ""
+msgstr "minuti"
 
 #: ../anoise/preferences.ui.h:4
 msgid ""
 "Automatically shutdown PC after 60' running this command:\n"
 "sudo shutdown -P 60"
 msgstr ""
+"Arresta automaticamente il sistema dopo 60' lanciando il comando:\n"
+"sudo shutdown -P 60"
 
 #: ../anoise/preferences.ui.h:6
 msgid "Timer:"
-msgstr ""
+msgstr "Timer:"
 
 #: ../anoise/preferences.ui.h:7
 msgid "Autostart with the system"
-msgstr ""
+msgstr "Avvio automatico con il sistema"
 
 #: ../anoise/preferences.ui.h:8
 msgid "Startup:"
-msgstr ""
+msgstr "Avvio"
 
 #: ../anoise/preferences.ui.h:9
 msgid "Get more sounds"
@@ -105,8 +107,8 @@ msgstr ""
 
 #: ../anoise/preferences.ui.h:12
 msgid "Donate?"
-msgstr ""
+msgstr "Fai una donazione?"
 
 #: ../anoise/preferences.ui.h:13
 msgid "Thanks in advance!"
-msgstr ""
+msgstr "Grazie!"
