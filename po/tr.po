@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: anoise\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-04-16 22:23+0200\n"
+"POT-Creation-Date: 2015-04-18 10:42+0200\n"
 "PO-Revision-Date: 2015-04-13 12:04+0000\n"
 "Last-Translator: Özgür BASKIN <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-17 05:43+0000\n"
+"X-Launchpad-Export-Date: 2015-04-21 05:55+0000\n"
 "X-Generator: Launchpad (build 17430)\n"
 
 #: ../anoise/anoise.py:69
@@ -109,4 +109,16 @@ msgstr ""
 
 #: ../anoise/preferences.ui.h:13
 msgid "Thanks in advance!"
+msgstr ""
+
+#: ../DELETE_extra_translations/anoise.ui.h:1
+msgid "_File"
+msgstr ""
+
+#: ../DELETE_extra_translations/anoise.ui.h:2
+msgid "_Edit"
+msgstr ""
+
+#: ../DELETE_extra_translations/anoise.ui.h:3
+msgid "_Help"
 msgstr ""
