@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# ANoise 0.0.23 (Ambient Noise)
+# ANoise 0.0.25 (Ambient Noise)
 # Copyright (C) 2015 Marcos Alvarez Costales https://launchpad.net/~costales
 #
 # ANoise is free software; you can redistribute it and/or modify
@@ -18,7 +18,7 @@
 
 import os, shutil
 from datetime import datetime, timedelta
-from gi.repository import Gtk
+from gi.repository import Gtk, WebKit
 # i18n
 import gettext
 gettext.textdomain('anoise')
@@ -41,6 +41,8 @@ class Preferences:
         self.lbl_minutes  = builder.get_object('lbl_minutes')
         self.cb_sleep     = builder.get_object('cb_timesleep')
         self.cb_autostart = builder.get_object('cb_autostart')
+        self.btn_noises   = builder.get_object('btn_show_noises')
+        self.web         = builder.get_object('boxWeb')
         
         # Autostart
         if os.path.isfile(self.AUTOSTART):
@@ -99,6 +101,26 @@ class Preferences:
             self.sp_timer.show()
             self.cb_sleep.set_label(_("Stop in"))
             self._restore_window_size()
+    
+    def on_btn_show_noises_clicked(self, widget, data=None):
+        self.web_content = WebKit.WebView()
+        settings = self.web_content.get_settings()
+        settings.set_property('enable-default-context-menu', False)
+        self.web_content.connect('navigation-requested', self._on_navigation_requested)
+        self.web_content.set_settings(settings)
+        self.web_content.open('http://anoise.tuxfamily.org/noises')
+        self.web.add(self.web_content)
+        
+        self.btn_noises.hide()
+        self.web.show_all()
+    
+    def _on_navigation_requested(self, view, frame, req):
+        uri = req.get_uri()
+        if uri and uri.startswith('apt'):
+            print(uri)
+            os.system('software-center %s' % (uri.replace('apt:', '')))
+            return WebKit.NavigationResponse.IGNORE
+        return WebKit.NavigationResponse.ACCEPT
     
     def on_preferences_delete_event(self, widget, data=None):
         self.win_preferences.hide()

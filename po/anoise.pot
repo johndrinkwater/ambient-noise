@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-18 10:42+0200\n"
+"POT-Creation-Date: 2015-04-26 12:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -96,18 +96,14 @@ msgid "Get more sounds"
 msgstr ""
 
 #: ../anoise/preferences.ui.h:10
-msgid "Download more noises in the easiest way!"
-msgstr ""
-
-#: ../anoise/preferences.ui.h:11
 msgid "Noises:"
 msgstr ""
 
-#: ../anoise/preferences.ui.h:12
+#: ../anoise/preferences.ui.h:11
 msgid "Donate?"
 msgstr ""
 
-#: ../anoise/preferences.ui.h:13
+#: ../anoise/preferences.ui.h:12
 msgid "Thanks in advance!"
 msgstr ""
 
