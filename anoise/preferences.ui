@@ -184,7 +184,7 @@ sudo shutdown -P 60</property>
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkButton" id="btn_show_noises">
-                        <property name="label" translatable="yes">Get more sounds</property>
+                        <property name="label" translatable="yes">Get more sounds online...</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
