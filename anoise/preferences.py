@@ -16,7 +16,7 @@
 # along with ANoise; if not, see http://www.gnu.org/licenses
 # for more information.
 
-import os, shutil
+import os, shutil, webbrowser
 from datetime import datetime, timedelta
 from gi.repository import Gtk, WebKit
 # i18n
@@ -42,7 +42,7 @@ class Preferences:
         self.cb_sleep     = builder.get_object('cb_timesleep')
         self.cb_autostart = builder.get_object('cb_autostart')
         self.btn_noises   = builder.get_object('btn_show_noises')
-        self.web         = builder.get_object('boxWeb')
+        self.web          = builder.get_object('boxWeb')
         
         # Autostart
         if os.path.isfile(self.AUTOSTART):
@@ -103,24 +103,23 @@ class Preferences:
             self._restore_window_size()
     
     def on_btn_show_noises_clicked(self, widget, data=None):
-        self.web_content = WebKit.WebView()
-        settings = self.web_content.get_settings()
-        settings.set_property('enable-default-context-menu', False)
-        self.web_content.connect('navigation-requested', self._on_navigation_requested)
-        self.web_content.set_settings(settings)
-        self.web_content.open('http://anoise.tuxfamily.org/noises')
-        self.web.add(self.web_content)
-        
         self.btn_noises.hide()
+        web_content = WebKit.WebView()
+        settings = web_content.get_settings()
+        settings.set_property('enable-default-context-menu', False)
+        web_content.set_settings(settings)
+        web_content.open('http://anoise.tuxfamily.org/noises')
+        web_content.connect('navigation-requested', self._on_navigation_requested)
+        self.web.add(web_content)
         self.web.show_all()
     
     def _on_navigation_requested(self, view, frame, req):
         uri = req.get_uri()
-        if uri and uri.startswith('apt'):
-            print(uri)
-            os.system('software-center %s' % (uri.replace('apt:', '')))
-            return WebKit.NavigationResponse.IGNORE
-        return WebKit.NavigationResponse.ACCEPT
+        if uri and uri.startswith('apt'): # OS installer
+            os.system('apturl %s &' % uri)
+        if uri and not uri.startswith('http://anoise'): # authors
+            webbrowser.open(uri)
+        return WebKit.NavigationResponse.IGNORE
     
     def on_preferences_delete_event(self, widget, data=None):
         self.win_preferences.hide()
