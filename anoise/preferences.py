@@ -117,9 +117,9 @@ class Preferences:
         uri = req.get_uri()
         if uri and uri.startswith('apt'): # OS installer
             os.system('apturl %s &' % uri)
-        if uri and not uri.startswith('http://anoise'): # authors
+        if uri and uri.startswith('http'): # authors
             webbrowser.open(uri)
-        return WebKit.NavigationResponse.IGNORE
+        return True
     
     def on_preferences_delete_event(self, widget, data=None):
         self.win_preferences.hide()
