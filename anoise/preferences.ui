@@ -143,7 +143,7 @@ sudo shutdown -P 60</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
-                    <property name="margin_bottom">18</property>
+                    <property name="margin_bottom">8</property>
                     <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
                     <signal name="toggled" handler="on_cb_autostart_toggled" swapped="no"/>
