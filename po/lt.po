@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: anoise\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-04-18 10:42+0200\n"
+"POT-Creation-Date: 2015-04-26 19:10+0200\n"
 "PO-Revision-Date: 2015-04-22 10:55+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-22 17:00+0000\n"
+"X-Launchpad-Export-Date: 2015-04-27 05:53+0000\n"
 "X-Generator: Launchpad (build 17430)\n"
 
 #: ../anoise/anoise.py:69
@@ -94,22 +94,18 @@ msgid "Startup:"
 msgstr "Paleidimas:"
 
 #: ../anoise/preferences.ui.h:9
-msgid "Get more sounds"
-msgstr "Gauti daugiau garsų"
+msgid "Get more sounds online..."
+msgstr ""
 
 #: ../anoise/preferences.ui.h:10
-msgid "Download more noises in the easiest way!"
-msgstr "Atsisiųsti daugiau garsų lengviausiu būdu!"
-
-#: ../anoise/preferences.ui.h:11
 msgid "Noises:"
 msgstr "Garsai:"
 
-#: ../anoise/preferences.ui.h:12
+#: ../anoise/preferences.ui.h:11
 msgid "Donate?"
 msgstr "Aukoti?"
 
-#: ../anoise/preferences.ui.h:13
+#: ../anoise/preferences.ui.h:12
 msgid "Thanks in advance!"
 msgstr "Iš anksto dėkojame!"
 
