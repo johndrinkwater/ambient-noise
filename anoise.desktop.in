@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 _Name=Ambient Noise
-_Comment=Ambient Noise Player
+_Comment=Play ambient noises
 Exec=anoise
 Icon=anoise
 Terminal=false
