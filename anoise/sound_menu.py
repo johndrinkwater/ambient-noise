@@ -219,6 +219,8 @@ class SoundMenuControls(dbus.service.Object):
         return {
             'CanQuit':      False,
             'CanRaise':     True,
+            'CanGoNext':    True,
+            'CanGoPrevious':True,
             'HasTrackList': False,
             'DesktopEntry': self.desktop_name,
         } # Fixed #1440061
