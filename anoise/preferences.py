@@ -31,7 +31,8 @@ _ = gettext.gettext
 class Preferences:
     """This will be for DE as MATE 14.10+ which hasn't sound indicator with Gtk3"""
     def __init__(self, player):
-        self.AUTOSTART = os.path.join(BaseDirectory.xdg_config_home, 'autostart', 'anoise.desktop')
+        self.AUTOSTART_DIR = os.path.join(BaseDirectory.xdg_config_home, 'autostart')
+        self.AUTOSTART = os.path.join(self.AUTOSTART_DIR, 'anoise.desktop')
         self.DATA_DIR  = os.path.join(BaseDirectory.xdg_data_home, 'anoise')
         self.DESKTOP = '/usr/share/applications/anoise.desktop'
         
@@ -49,8 +50,11 @@ class Preferences:
         self.btn_noises   = builder.get_object('btn_show_noises')
         self.web          = builder.get_object('boxWeb')
         
-        # Autostart
-        if os.path.isfile(self.AUTOSTART):
+        if not os.path.isdir(self.AUTOSTART_DIR):
+            # autostart dir does not exits. Create it
+            os.makedirs(self.AUTOSTART_DIR)
+        elif os.path.isfile(self.AUTOSTART):
+            # autostart dir exists and autostart file is present
             self.cb_autostart.set_active(True)
         else:
             self.cb_autostart.set_active(False)
