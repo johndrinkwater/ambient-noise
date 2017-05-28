@@ -16,8 +16,10 @@
 # along with ANoise; if not, see http://www.gnu.org/licenses
 # for more information.
 
-import os, shutil, webbrowser
+import gi, os, shutil, webbrowser
 from datetime import datetime, timedelta
+gi.require_version('Gtk', '3.0')
+gi.require_version('WebKit', '3.0')
 from gi.repository import Gtk, WebKit
 # i18n
 import gettext
