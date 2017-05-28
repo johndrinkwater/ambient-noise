@@ -1,7 +1,6 @@
 anoise (0.0.26) trusty; urgency=low
 
-  * More easier to install community noises
-  * Updated languages
+  * Make GUI depedence
 
- -- costales <costales.marcos@gmail.com>  Wed, 22 Apr 2015 19:00:31 +0000
+ -- costales <costales.marcos@gmail.com>  Sun, 28 May 2017 17:00:31 +0000
 
