@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # ANoise 0.0.26 - http://launchpad.net/anoise
 # Copyright (C) 2012-2015 Marcos Alvarez Costales https://launchpad.net/~costales

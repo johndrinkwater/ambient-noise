@@ -115,12 +115,11 @@ class SoundMenuControls(dbus.service.Object):
         such as, "simple-player" to refer to the file: simple-player.desktop.
 
         """
-
         self.desktop_name = desktop_name
         bus_str = """org.mpris.MediaPlayer2.%s""" % desktop_name
         bus_name = dbus.service.BusName(bus_str, bus=dbus.SessionBus())
         dbus.service.Object.__init__(self, bus_name, "/org/mpris/MediaPlayer2")
-        self.__playback_status = "Stopped"    
+        self.__playback_status = "Stopped"
 
         self.song_changed()
 
