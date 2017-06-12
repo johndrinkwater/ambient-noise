@@ -1,4 +1,4 @@
-anoise (0.0.27) trusty; urgency=low
+anoise (0.0.27) xenial; urgency=low
 
   * Fixed sound menu control
 
