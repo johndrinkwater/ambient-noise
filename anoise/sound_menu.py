@@ -222,8 +222,32 @@ class SoundMenuControls(dbus.service.Object):
             'HasTrackList': False,
             'DesktopEntry': self.desktop_name,
         } # Fixed #1440061
-        #return [DesktopEntry, PlaybackStatus, MetaData]
 
+    @property
+    def CanControl(self):
+        '''b Read only Interface MediaPlayer2.Player'''
+        return True
+
+    @property
+    def CanPlay(self):
+        '''b Read only Interface MediaPlayer2.Player'''
+        return True
+
+    @property
+    def CanPause(self):
+        '''b Read only Interface MediaPlayer2.Player'''
+        return True
+    
+    @property
+    def CanGoNext(self):
+        '''b Read only Interface MediaPlayer2.Player'''
+        return True
+    
+    @property
+    def CanGoPrevious(self):
+        '''b Read only Interface MediaPlayer2.Player'''
+        return True
+    
     @property
     def DesktopEntry(self):
         """DesktopEntry

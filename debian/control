@@ -1,7 +1,7 @@
 Source: anoise
 Section: sound
 Priority: extra
-Standards-Version: 0.0.26
+Standards-Version: 0.0.27
 Maintainer: costales <costales.marcos@gmail.com>
 Build-Depends: python-distutils-extra, debhelper (>=7)
 Homepage: https://code.launchpad.net/anoise
@@ -10,7 +10,7 @@ Package: anoise
 Architecture: all
 Section: sound
 Priority: extra
-Depends: python-gst-1.0, gir1.2-gstreamer-1.0, gir1.2-gtk-3.0, anoise-media, anoise-gui, ${python:Depends}
+Depends: python-gst-1.0, gir1.2-gstreamer-1.0, gir1.2-gtk-3.0, anoise-media, ${python:Depends}
 Breaks: anoise (<< 0.0.9)
 Replaces: anoise (<< 0.0.9)
 Description: Ambient Noise Player

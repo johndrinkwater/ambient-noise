@@ -1,6 +1,6 @@
-anoise (0.0.26) trusty; urgency=low
+anoise (0.0.27) trusty; urgency=low
 
-  * Make GUI depedence
+  * Fixed sound menu control
 
- -- costales <costales.marcos@gmail.com>  Sun, 28 May 2017 17:00:31 +0000
+ -- costales <costales.marcos@gmail.com>  Mon, 12 Jun 2017 17:00:31 +0000
 
