@@ -7,63 +7,63 @@ msgid ""
 msgstr ""
 "Project-Id-Version: anoise\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-05-08 20:32+0200\n"
-"PO-Revision-Date: 2015-04-22 10:55+0000\n"
+"POT-Creation-Date: 2017-06-12 22:29+0200\n"
+"PO-Revision-Date: 2016-03-19 20:29+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-05-14 05:06+0000\n"
-"X-Generator: Launchpad (build 17493)\n"
+"X-Launchpad-Export-Date: 2017-06-14 06:23+0000\n"
+"X-Generator: Launchpad (build 18404)\n"
 
-#: ../anoise/anoise.py:69
+#: ../anoise/anoise.py:71
 msgid "Coffee Shop"
-msgstr "Kavos Parduotuvė"
+msgstr "Kavos parduotuvė"
 
-#: ../anoise/anoise.py:69
+#: ../anoise/anoise.py:71
 msgid "Fire"
 msgstr "Ugnis"
 
-#: ../anoise/anoise.py:69
+#: ../anoise/anoise.py:71
 msgid "Forest"
 msgstr "Miškas"
 
-#: ../anoise/anoise.py:69
+#: ../anoise/anoise.py:71
 msgid "Night"
 msgstr "Naktis"
 
-#: ../anoise/anoise.py:69
+#: ../anoise/anoise.py:71
 msgid "Rain"
 msgstr "Lietus"
 
-#: ../anoise/anoise.py:69
+#: ../anoise/anoise.py:71
 msgid "River"
 msgstr "Upė"
 
-#: ../anoise/anoise.py:69
+#: ../anoise/anoise.py:71
 msgid "Sea"
 msgstr "Jūra"
 
-#: ../anoise/anoise.py:69
+#: ../anoise/anoise.py:71
 msgid "Storm"
 msgstr "Audra"
 
-#: ../anoise/anoise.py:69
+#: ../anoise/anoise.py:71
 msgid "Wind"
 msgstr "Vėjas"
 
 #: ../anoise.desktop.in.h:1
 msgid "Ambient Noise"
-msgstr "Supantis Garsas"
+msgstr "Supantis garsas"
 
 #: ../anoise.desktop.in.h:2
 msgid "Play ambient noises"
-msgstr ""
+msgstr "Groti supančius garsus"
 
 #: ../anoise/preferences.ui.h:1
 msgid "ANoise Preferences"
-msgstr "Anoise Nuostatos"
+msgstr "Anoise nuostatos"
 
 #: ../anoise/preferences.ui.h:2
 msgid "Stop in"
@@ -83,7 +83,7 @@ msgstr ""
 
 #: ../anoise/preferences.ui.h:6
 msgid "Timer:"
-msgstr "Laikmatis"
+msgstr "Laikmatis:"
 
 #: ../anoise/preferences.ui.h:7
 msgid "Autostart with the system"
@@ -95,7 +95,7 @@ msgstr "Paleidimas:"
 
 #: ../anoise/preferences.ui.h:9
 msgid "Get more online..."
-msgstr ""
+msgstr "Gauti daugiau internete..."
 
 #: ../anoise/preferences.ui.h:10
 msgid "Noises:"
@@ -109,17 +109,5 @@ msgstr "Aukoti?"
 msgid "Thanks in advance!"
 msgstr "Iš anksto dėkojame!"
 
-#: ../DELETE_extra_translations/anoise.ui.h:1
-msgid "_File"
-msgstr "_Failas"
-
-#: ../DELETE_extra_translations/anoise.ui.h:2
-msgid "_Edit"
-msgstr "K_eisti"
-
-#: ../DELETE_extra_translations/anoise.ui.h:3
-msgid "_Help"
-msgstr "_Pagalba"
-
 #~ msgid "Ambient Noise Player"
-#~ msgstr "Supančio Garso Grotuvas"
+#~ msgstr "Supančio garso grotuvas"

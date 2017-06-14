@@ -1,16 +1,16 @@
-# Albanian translation for anoise
-# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
+# Bosnian translation for anoise
+# Copyright (c) 2016 Rosetta Contributors and Canonical Ltd 2016
 # This file is distributed under the same license as the anoise package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: anoise\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-06-12 22:29+0200\n"
-"PO-Revision-Date: 2015-04-05 14:50+0000\n"
-"Last-Translator: Indrit Bashkimi <indrit.bashkimi@gmail.com>\n"
-"Language-Team: Albanian <sq@li.org>\n"
+"PO-Revision-Date: 2016-03-20 13:55+0000\n"
+"Last-Translator: Kenan Gutić <Unknown>\n"
+"Language-Team: Bosnian <bs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,90 +19,92 @@ msgstr ""
 
 #: ../anoise/anoise.py:71
 msgid "Coffee Shop"
-msgstr ""
+msgstr "Kafić"
 
 #: ../anoise/anoise.py:71
 msgid "Fire"
-msgstr "Zjarr"
+msgstr "Vatra"
 
 #: ../anoise/anoise.py:71
 msgid "Forest"
-msgstr "Pyll"
+msgstr "Šuma"
 
 #: ../anoise/anoise.py:71
 msgid "Night"
-msgstr "Natë"
+msgstr "Noć"
 
 #: ../anoise/anoise.py:71
 msgid "Rain"
-msgstr "Shi"
+msgstr "Kiša"
 
 #: ../anoise/anoise.py:71
 msgid "River"
-msgstr ""
+msgstr "Rijeka"
 
 #: ../anoise/anoise.py:71
 msgid "Sea"
-msgstr "Detë"
+msgstr "More"
 
 #: ../anoise/anoise.py:71
 msgid "Storm"
-msgstr "Stuhi"
+msgstr "Oluja"
 
 #: ../anoise/anoise.py:71
 msgid "Wind"
-msgstr "Erë"
+msgstr "Vjetar"
 
 #: ../anoise.desktop.in.h:1
 msgid "Ambient Noise"
-msgstr ""
+msgstr "Ambijentalni zvukovi"
 
 #: ../anoise.desktop.in.h:2
 msgid "Play ambient noises"
-msgstr ""
+msgstr "Pusti ambijentalne zvukove"
 
 #: ../anoise/preferences.ui.h:1
 msgid "ANoise Preferences"
-msgstr ""
+msgstr "ANoise podešavanja"
 
 #: ../anoise/preferences.ui.h:2
 msgid "Stop in"
-msgstr ""
+msgstr "Zaustavi za"
 
 #: ../anoise/preferences.ui.h:3
 msgid "minutes"
-msgstr ""
+msgstr "minuta"
 
 #: ../anoise/preferences.ui.h:4
 msgid ""
 "Automatically shutdown PC after 60' running this command:\n"
 "sudo shutdown -P 60"
 msgstr ""
+"Automatski isključi PC poslije 60' koristeći ovu komandu:\n"
+"sudo shutdown -P 60"
 
 #: ../anoise/preferences.ui.h:6
 msgid "Timer:"
-msgstr ""
+msgstr "Tajmer:"
 
 #: ../anoise/preferences.ui.h:7
 msgid "Autostart with the system"
-msgstr ""
+msgstr "Pokreni sa sistemom"
 
 #: ../anoise/preferences.ui.h:8
 msgid "Startup:"
-msgstr ""
+msgstr "Pokretanje:"
 
 #: ../anoise/preferences.ui.h:9
 msgid "Get more online..."
-msgstr ""
+msgstr "Preuzmi više online..."
 
 #: ../anoise/preferences.ui.h:10
 msgid "Noises:"
-msgstr ""
+msgstr "Zvukovi:"
 
 #: ../anoise/preferences.ui.h:11
 msgid "Donate?"
-msgstr ""
+msgstr "Donirajte?"
 
 #: ../anoise/preferences.ui.h:12
 msgid "Thanks in advance!"
-msgstr ""
+msgstr "Hvala unaprijed!"
