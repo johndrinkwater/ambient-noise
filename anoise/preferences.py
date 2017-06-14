@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# ANoise 0.0.27 (Ambient Noise)
+# ANoise 0.0.28 (Ambient Noise)
 # Copyright (C) 2015 Marcos Alvarez Costales https://launchpad.net/~costales
 #
 # ANoise is free software; you can redistribute it and/or modify
@@ -16,7 +16,7 @@
 # along with ANoise; if not, see http://www.gnu.org/licenses
 # for more information.
 
-import gi, os, shutil, webbrowser
+import gi, os, shutil, webbrowser, subprocess
 from datetime import datetime, timedelta
 gi.require_version('Gtk', '3.0')
 gi.require_version('WebKit', '3.0')
@@ -118,7 +118,7 @@ class Preferences:
     def _on_navigation_requested(self, view, frame, req):
         uri = req.get_uri()
         if uri and uri.startswith('apt'): # OS installer
-            os.system('apturl %s &' % uri)
+            subprocess.Popen(["apturl", uri], shell=False)
         if uri and uri.startswith('http'): # authors
             webbrowser.open(uri)
         return True
