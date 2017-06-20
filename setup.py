@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# ANoise 0.0.28 - http://launchpad.net/anoise
+# ANoise 0.0.29 - http://launchpad.net/anoise
 # Copyright (C) 2012-2015 Marcos Alvarez Costales https://launchpad.net/~costales
 #
 # ANoise is free software; you can redistribute it and/or modify
@@ -29,7 +29,7 @@ data = [ ('/usr/share/anoise',                      glob.glob('anoise/*')),
 # Setup stage
 DistUtilsExtra.auto.setup(
     name         = "anoise",
-    version      = "0.0.28",
+    version      = "0.0.29",
     description  = "Ambient Noise",
     author       = "Marcos Alvarez Costales https://launchpad.net/~costales",
     author_email = "https://launchpad.net/~costales",
