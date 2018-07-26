@@ -60,27 +60,28 @@ class Noise:
     def refresh_all_ogg(self):
         """Get all current files in sounds paths"""
         all_files = []
+        sound_types = ['.ogg','.mp3','.wav','.webm']
         # Global
         sound_files = os.path.join(os.path.split(os.path.abspath(__file__))[0], 'sounds', '*.*')
         available_sounds = glob.glob(sound_files)
         for sound in available_sounds:
-            if sound[-4:].lower() in '.ogg.mp3.wav':
+            if os.path.splitext(sound)[1].lower() in sound_types:
                 all_files.append(sound)
         # Local
         sound_files = os.path.join(self.DATA_DIR, '*.*')
         available_sounds = glob.glob(sound_files)
         for sound in available_sounds:
-            if sound[-4:].lower() in '.ogg.mp3.wav':
+            if os.path.splitext(sound)[1].lower() in sound_types:
                 all_files.append(sound)
         sound_files = os.path.join(os.getenv('HOME'), 'ANoise', '*.*')
         available_sounds = glob.glob(sound_files)
         for sound in available_sounds:
-            if sound[-4:].lower() in '.ogg.mp3.wav':
+            if os.path.splitext(sound)[1].lower() in sound_types:
                 all_files.append(sound)
         sound_files = os.path.join(os.getenv('HOME'), '.ANoise', '*.*')
         available_sounds = glob.glob(sound_files)
         for sound in available_sounds:
-            if sound[-4:].lower() in '.ogg.mp3.wav':
+            if os.path.splitext(sound)[1].lower() in sound_types:
                 all_files.append(sound)
         
         if not len(all_files):
@@ -121,14 +122,14 @@ class Noise:
         if noise == None:
             filename = self.noises[self.current][0]
         else:
-            filename = os.path.basename(noise[:-4])
+            filename = os.path.basename(os.path.splitext(noise)[0])
             filename = filename.replace('_', ' ')
             filename = filename.title()
         return _(filename)
     
     def get_icon(self):
         """Get the name for set as Title in sound indicator"""
-        filename = self.get_current_filename()[:-4]
+        filename = os.path.splitext(self.get_current_filename())[0]
         filename = '.'.join([filename, 'png'])
         return filename
     
