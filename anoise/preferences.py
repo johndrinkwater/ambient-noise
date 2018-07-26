@@ -17,6 +17,7 @@
 # for more information.
 
 import gi, os, shutil, webbrowser, subprocess
+from xdg import BaseDirectory
 from datetime import datetime, timedelta
 gi.require_version('Gtk', '3.0')
 gi.require_version('WebKit', '3.0')
@@ -30,7 +31,7 @@ _ = gettext.gettext
 class Preferences:
     """This will be for DE as MATE 14.10+ which hasn't sound indicator with Gtk3"""
     def __init__(self, player):
-        self.AUTOSTART = os.path.join(os.getenv('HOME'), '.config', 'autostart', 'anoise.desktop')
+        self.AUTOSTART = os.path.join(BaseDirectory.xdg_config_home, 'autostart', 'anoise.desktop')
         self.DESKTOP = '/usr/share/applications/anoise.desktop'
         
         self.player = player

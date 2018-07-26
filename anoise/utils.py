@@ -17,6 +17,7 @@
 # for more information.
 
 import os, glob, sys, socket, operator
+from xdg import BaseDirectory
 # i18n
 import gettext
 gettext.textdomain('anoise')
@@ -43,7 +44,8 @@ class Lock:
 class Noise:
     """Manage access to noises"""
     def __init__(self):
-        self.CFG_DIR   = os.path.join(os.getenv('HOME'), '.config', 'anoise')
+        self.CFG_DIR   = os.path.join(BaseDirectory.xdg_config_home, 'anoise')
+        self.DATA_DIR  = os.path.join(BaseDirectory.xdg_data_home, 'anoise')
         self.CFG_FILE  = os.path.join(self.CFG_DIR, 'anoise.cfg')
         if not os.path.exists(self.CFG_DIR):
             try:
@@ -65,6 +67,11 @@ class Noise:
             if sound[-4:].lower() in '.ogg.mp3.wav':
                 all_files.append(sound)
         # Local
+        sound_files = os.path.join(self.DATA_DIR, '*.*')
+        available_sounds = glob.glob(sound_files)
+        for sound in available_sounds:
+            if sound[-4:].lower() in '.ogg.mp3.wav':
+                all_files.append(sound)
         sound_files = os.path.join(os.getenv('HOME'), 'ANoise', '*.*')
         available_sounds = glob.glob(sound_files)
         for sound in available_sounds:
