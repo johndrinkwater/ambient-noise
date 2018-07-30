@@ -148,5 +148,7 @@ class ANoise:
 
 if __name__ == "__main__":
     Lock()
+    os.environ[ 'PULSE_PROP_application.icon_name' ] = "anoise"
+    os.environ[ 'PULSE_PROP_media.role' ] = "music"
     anoise = ANoise()
     Gtk.main()
