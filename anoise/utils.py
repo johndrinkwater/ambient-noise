@@ -133,6 +133,8 @@ class Noise:
         else:
             filename = os.path.basename(os.path.splitext(noise)[0])
             filename = filename.replace('_', ' ')
+            filename = filename.replace('-', ' ')
+            filename = filename.replace('.', '\n')
             filename = filename.title()
         return _(filename)
     
