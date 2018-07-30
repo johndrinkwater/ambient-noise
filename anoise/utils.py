@@ -48,7 +48,7 @@ class Noise:
     def __init__(self):
         self.CFG_DIR   = os.path.join(BaseDirectory.xdg_config_home, 'anoise')
         self.DATA_DIR  = os.path.join(BaseDirectory.xdg_data_home, 'anoise')
-        self.CFG_FILE  = os.path.join(self.CFG_DIR, 'anoise.cfg')
+        self.CFG_FILE  = os.path.join(self.CFG_DIR, 'config')
         if not os.path.exists(self.CFG_DIR):
             try:
                 os.makedirs(self.CFG_DIR)
