@@ -16,7 +16,7 @@
 # along with ANoise; if not, see http://www.gnu.org/licenses
 # for more information.
 
-import gi, os, shutil, webbrowser, subprocess, urlparse, urllib
+import gi, os, shutil, webbrowser, subprocess
 from xdg import BaseDirectory
 from datetime import datetime, timedelta
 gi.require_version('Gtk', '3.0')
@@ -122,8 +122,8 @@ class Preferences:
                 pass  
         
         if os.path.isdir(sound_file_location):
-            location = urlparse.urljoin('file:', urllib.pathname2url(sound_file_location))
-            webbrowser.open(location)
+            sound_file_uri = ''.join(['file://', sound_file_location])
+            webbrowser.open(sound_file_uri)
 
     def on_btn_show_noises_clicked(self, widget, data=None):
         self.btn_noises.hide()
