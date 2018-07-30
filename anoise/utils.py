@@ -100,9 +100,12 @@ class Noise:
     
     def get_current_filename(self):
         """Get current sound filename"""
-        filename = ''.join(['file://', self.noises[self.current][1]])
-        return filename
-    
+        return self.noises[self.current][1]
+
+    def get_current_filename_uri(self):
+        """Get current sound filename as a file:// uri"""
+        return ''.join(['file://', self.get_current_filename()])
+
     def set_next(self):
         """Next sound filename"""
         self.current = self.current + 1
@@ -127,12 +130,14 @@ class Noise:
             filename = filename.title()
         return _(filename)
     
-    def get_icon(self):
-        """Get the name for set as Title in sound indicator"""
+    def get_icon_uri(self):
+        """Get current sound thumbnail icon as a file:// uri"""
         filename = os.path.splitext(self.get_current_filename())[0]
         filename = '.'.join([filename, 'png'])
-        return filename
-    
+
+        return ''.join(['file://', filename])
+
+
     def _get_cfg_last(self, max):
         current = 0
         try:
