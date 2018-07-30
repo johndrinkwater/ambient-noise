@@ -16,7 +16,7 @@
 # along with ANoise; if not, see http://www.gnu.org/licenses
 # for more information.
 
-import gi, os, shutil, webbrowser, subprocess
+import gi, os, shutil, webbrowser, subprocess, urlparse, urllib
 from xdg import BaseDirectory
 from datetime import datetime, timedelta
 gi.require_version('Gtk', '3.0')
@@ -32,6 +32,7 @@ class Preferences:
     """This will be for DE as MATE 14.10+ which hasn't sound indicator with Gtk3"""
     def __init__(self, player):
         self.AUTOSTART = os.path.join(BaseDirectory.xdg_config_home, 'autostart', 'anoise.desktop')
+        self.DATA_DIR  = os.path.join(BaseDirectory.xdg_data_home, 'anoise')
         self.DESKTOP = '/usr/share/applications/anoise.desktop'
         
         self.player = player
@@ -44,6 +45,7 @@ class Preferences:
         self.lbl_minutes  = builder.get_object('lbl_minutes')
         self.cb_sleep     = builder.get_object('cb_timesleep')
         self.cb_autostart = builder.get_object('cb_autostart')
+        self.btn_datadir  = builder.get_object('btn_show_datadir')
         self.btn_noises   = builder.get_object('btn_show_noises')
         self.web          = builder.get_object('boxWeb')
         
@@ -105,6 +107,24 @@ class Preferences:
             self.cb_sleep.set_label(_("Stop in"))
             self._restore_window_size()
     
+    def on_btn_show_datadir_clicked(self, widget, data=None):
+        sound_file_location = os.path.join(os.getenv('HOME'), 'ANoise')
+        if not os.path.exists(sound_file_location):
+            sound_file_location = os.path.join(os.getenv('HOME'), '.ANoise')   
+        if not os.path.exists(sound_file_location):
+            sound_file_location = self.DATA_DIR
+        if not os.path.exists(sound_file_location):
+            try:
+                os.makedirs(sound_file_location)
+            except OSError as exception:
+                pass
+            except:
+                pass  
+        
+        if os.path.isdir(sound_file_location):
+            location = urlparse.urljoin('file:', urllib.pathname2url(sound_file_location))
+            webbrowser.open(location)
+
     def on_btn_show_noises_clicked(self, widget, data=None):
         self.btn_noises.hide()
         web_content = WebKit.WebView()
