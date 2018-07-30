@@ -8,12 +8,8 @@ An ambient noise player
 
 HOW DO I INSTALL & RUN IT?
 ==========================
-From a PPA:
-    # add-apt-repository ppa:costales/anoise
-    # apt-get update && sudo apt-get install anoise
 From the code (take a look to the dependencies):
-    $ bzr branch lp:anoise && cd anoise && sudo python setup.py install --prefix=/usr
-
+    $ git clone https://github.com/johndrinkwater/anoise.git && cd anoise && sudo python setup.py install --prefix=/usr
 
 
 DEPENDENCIES
@@ -23,13 +19,10 @@ gir1.2-gstreamer-0.10
 gir1.2-gtk-3.0
 
 
-
 WHAT IS NEW?
 ============
-  * More easier to install community noises
+  * Easier to install community noises
   * Updated languages
-
-
 
 
 LICENSES
