@@ -6,12 +6,12 @@
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # ANoise is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with ANoise; if not, see http://www.gnu.org/licenses
 # for more information.
@@ -30,14 +30,14 @@ class Lock:
     """1 Instance"""
     def __init__(self):
         global lock_socket
-        
+
         lock_socket = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
-        
+
         try:
             lock_socket.bind('\0' + 'anoise_running') # Lock
         except socket.error:
             sys.exit() # Was locked before
-        
+
         try:
             os.remove('/tmp/anoise_preferences')
         except:
@@ -89,21 +89,21 @@ class Noise:
         for sound in available_sounds:
             if os.path.splitext(sound)[1].lower() in sound_types:
                 all_files.append(sound)
-        
+
         if not len(all_files):
             sys.exit('Not noise files found')
-        
+
         self.noises = {}
         for noise in all_files:
             self.noises[self.get_name(noise)] = noise
-        
+
         self.noises = sorted(self.noises.items(), key=operator.itemgetter(0))
-        
+
         self.max = len(self.noises) - 1
         self.current = self._get_cfg_last(self.max)
         if self.current > self.max:
             self.current = 0
-    
+
     def get_current_filename(self):
         """Get current sound filename"""
         return self.noises[self.current][1]
@@ -118,14 +118,14 @@ class Noise:
         if self.current > self.max:
             self.current = 0
         self._set_cfg_current()
-    
+
     def set_previous(self):
         """Previous sound filename"""
         self.current = self.current - 1
         if self.current < 0:
             self.current = self.max
         self._set_cfg_current()
-    
+
     def get_name(self, noise=None):
         """Title for sound indicator"""
         if noise == None:
@@ -137,7 +137,7 @@ class Noise:
             filename = filename.replace('.', '\n')
             filename = filename.title()
         return _(filename)
-    
+
     def get_icon_uri(self):
         """Get current sound thumbnail icon as a file:// uri"""
         filename = os.path.splitext(self.get_current_filename())[0]
@@ -158,7 +158,7 @@ class Noise:
         except:
             pass
         return current
-    
+
     def _set_cfg_current(self):
         cfg_file = open(self.CFG_FILE, "w")
         cfg_file.write(str(self.current))

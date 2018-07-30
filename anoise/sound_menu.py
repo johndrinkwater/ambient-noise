@@ -2,16 +2,16 @@
 # -*- coding: utf-8 -*-
 ### BEGIN LICENSE
 # Copyright (C) 2011 Rick Spencer <rick.spencer@canonical.com>
-# This program is free software: you can redistribute it and/or modify it 
-# under the terms of the GNU General Public License version 3, as published 
+# This program is free software: you can redistribute it and/or modify it
+# under the terms of the GNU General Public License version 3, as published
 # by the Free Software Foundation.
-# 
-# This program is distributed in the hope that it will be useful, but 
-# WITHOUT ANY WARRANTY; without even the implied warranties of 
-# MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR 
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranties of
+# MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
 # PURPOSE.  See the GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License along 
+#
+# You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 ### END LICENSE
 
@@ -53,7 +53,7 @@ Functions and properties starting with capitalize letters, such as
 functions and properties are not designed to be called directly
 or overriden by application code, only the Sound Menu.
 
-Other functions are designed to be called as needed by the 
+Other functions are designed to be called as needed by the
 implementation to inform the Sound Menu of changes. Thse functions
 include signal_playing, signal_paused, and song_changed.
 
@@ -76,11 +76,11 @@ sound_menu.signal_playing()
 sound_menu.signal_paused()
 
 #whent the song is changed from the application,
-#use song_changed to inform the Ubuntu Sound Menu 
+#use song_changed to inform the Ubuntu Sound Menu
 sound_menu.song_changed(artist, album, song_title)
 
 Configuring
-SoundMenuControls does not come with any stock behaviors, so it 
+SoundMenuControls does not come with any stock behaviors, so it
 cannot be configured
 
 Extending
@@ -129,14 +129,14 @@ class SoundMenuControls(dbus.service.Object):
         This method is not typically overriden. It should be called
         by implementations of this class when the player has changed
         songs.
-            
+
         named arguments:
             artists - a list of strings representing the artists"
             album - a string for the name of the album
             title - a string for the title of the song
 
         """
-        
+
         if artists is None:
             artists = ["Artist Unknown"]
         if album is None:
@@ -145,7 +145,7 @@ class SoundMenuControls(dbus.service.Object):
             title = "Title Uknown"
         if album_art is None:
             album_art = ""
-   
+
         self.__meta_data = dbus.Dictionary({"xesam:album":album,
                             "xesam:title":title,
                             "xesam:artist":artists,
@@ -240,17 +240,17 @@ class SoundMenuControls(dbus.service.Object):
     def CanPause(self):
         '''b Read only Interface MediaPlayer2.Player'''
         return True
-    
+
     @property
     def CanGoNext(self):
         '''b Read only Interface MediaPlayer2.Player'''
         return True
-    
+
     @property
     def CanGoPrevious(self):
         '''b Read only Interface MediaPlayer2.Player'''
         return True
-    
+
     @property
     def DesktopEntry(self):
         """DesktopEntry
@@ -303,7 +303,7 @@ class SoundMenuControls(dbus.service.Object):
 
         self._sound_menu_next()
 
-    def _sound_menu_next(self): 
+    def _sound_menu_next(self):
         """_sound_menu_next
 
         This function is called when the user has clicked
@@ -394,13 +394,13 @@ class SoundMenuControls(dbus.service.Object):
         d = dbus.Dictionary({"PlaybackStatus":self.__playback_status},
                                     "sv",variant_level=1)
         self.PropertiesChanged("org.mpris.MediaPlayer2.Player",d,[])
-            
+
 
     def _sound_menu_is_playing(self):
-        """_sound_menu_is_playing         
+        """_sound_menu_is_playing
 
-        Check if the the player is playing,.        
-        Implementations should overrirde this function 
+        Check if the the player is playing,.
+        Implementations should overrirde this function
         so that the Sound Menu can check whether to display
         Play or Pause functionality.
 
@@ -420,10 +420,10 @@ class SoundMenuControls(dbus.service.Object):
     def _sound_menu_pause(self):
         """_sound_menu_pause
 
-        Reponds to the Sound Menu when the user has click the 
+        Reponds to the Sound Menu when the user has click the
         Pause button.
-        
-        Implementations should overrirde this function 
+
+        Implementations should overrirde this function
         to pause playback when called.
 
         The default implementation of this function does nothing
@@ -433,7 +433,7 @@ class SoundMenuControls(dbus.service.Object):
 
         returns:
             None
- 
+
        """
 
         pass
@@ -441,10 +441,10 @@ class SoundMenuControls(dbus.service.Object):
     def _sound_menu_play(self):
         """_sound_menu_play
 
-        Reponds to the Sound Menu when the user has click the 
+        Reponds to the Sound Menu when the user has click the
         Play button.
-        
-        Implementations should overrirde this function 
+
+        Implementations should overrirde this function
         to play playback when called.
 
         The default implementation of this function does nothing
@@ -454,7 +454,7 @@ class SoundMenuControls(dbus.service.Object):
 
         returns:
             None
- 
+
        """
 
         pass
