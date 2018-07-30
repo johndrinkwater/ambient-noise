@@ -113,11 +113,14 @@ class ANoise:
         # From pause?
         self.player.set_state(Gst.State.READY)
         if not self.is_playing:
-            self.is_playing = True
+            self.sound_menu.song_changed('', '', self.noise.get_name(), self.noise.get_icon())
+            self.sound_menu.signal_playing()
+            self.sound_menu.signal_paused()
         # Set new sound
         self.player.set_property('uri', self.noise.get_current_filename())
         # Play
-        self._sound_menu_play()
+        if self.is_playing:
+            self._sound_menu_play()
     
     def _sound_menu_previous(self):
         """Previous"""
