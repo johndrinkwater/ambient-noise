@@ -16,7 +16,9 @@
 # along with ANoise; if not, see http://www.gnu.org/licenses
 # for more information.
 
-import os, glob, sys, socket, operator
+import os, glob, sys, socket, operator, gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk
 from xdg import BaseDirectory
 # i18n
 import gettext
@@ -54,9 +56,13 @@ class Noise:
                 pass
             except:
                 pass
-        
+
+        try:
+            self.BASE_ICON = Gtk.IconTheme.get_default().lookup_icon('anoise', 48, 0).get_filename()
+        except:
+            self.BASE_ICON = ''
         self.refresh_all_ogg()
-    
+
     def refresh_all_ogg(self):
         """Get all current files in sounds paths"""
         all_files = []
@@ -134,6 +140,8 @@ class Noise:
         """Get current sound thumbnail icon as a file:// uri"""
         filename = os.path.splitext(self.get_current_filename())[0]
         filename = '.'.join([filename, 'png'])
+        if not os.path.exists(filename):
+            filename = self.BASE_ICON
 
         return ''.join(['file://', filename])
 
