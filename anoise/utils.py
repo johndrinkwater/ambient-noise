@@ -49,6 +49,11 @@ class Noise:
         self.CFG_DIR   = os.path.join(BaseDirectory.xdg_config_home, 'anoise')
         self.DATA_DIR  = os.path.join(BaseDirectory.xdg_data_home, 'anoise')
         self.CFG_FILE  = os.path.join(self.CFG_DIR, 'config')
+        self.SOUND_PATHS = [
+            os.path.join(os.path.split(os.path.abspath(__file__))[0], 'sounds', '*.*'),
+            os.path.join(self.DATA_DIR, '*.*')
+        ]
+
         if not os.path.exists(self.CFG_DIR):
             try:
                 os.makedirs(self.CFG_DIR)
@@ -67,28 +72,12 @@ class Noise:
         """Get all current files in sounds paths"""
         all_files = []
         sound_types = ['.ogg','.mp3','.wav','.webm']
-        # Global
-        sound_files = os.path.join(os.path.split(os.path.abspath(__file__))[0], 'sounds', '*.*')
-        available_sounds = glob.glob(sound_files)
-        for sound in available_sounds:
-            if os.path.splitext(sound)[1].lower() in sound_types:
-                all_files.append(sound)
-        # Local
-        sound_files = os.path.join(self.DATA_DIR, '*.*')
-        available_sounds = glob.glob(sound_files)
-        for sound in available_sounds:
-            if os.path.splitext(sound)[1].lower() in sound_types:
-                all_files.append(sound)
-        sound_files = os.path.join(os.getenv('HOME'), 'ANoise', '*.*')
-        available_sounds = glob.glob(sound_files)
-        for sound in available_sounds:
-            if os.path.splitext(sound)[1].lower() in sound_types:
-                all_files.append(sound)
-        sound_files = os.path.join(os.getenv('HOME'), '.ANoise', '*.*')
-        available_sounds = glob.glob(sound_files)
-        for sound in available_sounds:
-            if os.path.splitext(sound)[1].lower() in sound_types:
-                all_files.append(sound)
+
+        for sound_files in self.SOUND_PATHS:
+            available_sounds = glob.glob(sound_files)
+            for sound in available_sounds:
+                if os.path.splitext(sound)[1].lower() in sound_types:
+                    all_files.append(sound)
 
         if not len(all_files):
             sys.exit('Not noise files found')
