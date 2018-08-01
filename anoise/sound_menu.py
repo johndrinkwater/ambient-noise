@@ -278,8 +278,8 @@ class SoundMenuControls(dbus.service.Object):
         return self.__playback_status
 
     @property
-    def MetaData(self):
-        """MetaData
+    def Metadata(self):
+        """Metadata
 
         The info for the current song.
 
