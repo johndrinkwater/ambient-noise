@@ -61,9 +61,9 @@ class Noise:
             self.BASE_ICON = Gtk.IconTheme.get_default().lookup_icon('anoise', 48, 0).get_filename()
         except:
             self.BASE_ICON = ''
-        self.refresh_all_ogg()
+        self.refresh_sound_files()
 
-    def refresh_all_ogg(self):
+    def refresh_sound_files(self):
         """Get all current files in sounds paths"""
         all_files = []
         sound_types = ['.ogg','.mp3','.wav','.webm']
