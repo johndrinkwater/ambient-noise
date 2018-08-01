@@ -139,7 +139,7 @@ class SoundMenuControls(dbus.service.Object):
             filename - a string of the uri for the filename
 
         """
-        trackid = "/".join(["/org", self.desktop_name, "playlist", str(trackid)])
+        trackid = dbus.ObjectPath("/".join(["/org", self.desktop_name, "playlist", str(trackid)]))
         if artists is None:
             artists = ["Artist Unknown"]
         if album is None:
