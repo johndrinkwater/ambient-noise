@@ -104,6 +104,10 @@ class Noise:
         if self.current > self.max:
             self.current = 0
 
+    def get_current_index(self):
+        """Get current sound index in tracklist"""
+        return self.current
+
     def get_current_filename(self):
         """Get current sound filename"""
         return self.noises[self.current][1]

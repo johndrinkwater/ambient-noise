@@ -121,9 +121,9 @@ class SoundMenuControls(dbus.service.Object):
         dbus.service.Object.__init__(self, bus_name, "/org/mpris/MediaPlayer2")
         self.__playback_status = "Stopped"
 
-        self.song_changed()
+        self.song_changed( 0 )
 
-    def song_changed(self, artists = None, album = None, title = None, album_art = None):
+    def song_changed(self, trackid, artists = None, album = None, title = None, album_art = None, filename = None):
         """song_changed - sets the info for the current song.
 
         This method is not typically overriden. It should be called
@@ -131,12 +131,15 @@ class SoundMenuControls(dbus.service.Object):
         songs.
 
         named arguments:
+            trackid - an integer of the sound index in the tracklist
             artists - a list of strings representing the artists"
             album - a string for the name of the album
             title - a string for the title of the song
+            album_art - a string of the uri for the albumart filename
+            filename - a string of the uri for the filename
 
         """
-
+        trackid = "/".join(["/org", self.desktop_name, "playlist", str(trackid)])
         if artists is None:
             artists = ["Artist Unknown"]
         if album is None:
@@ -145,8 +148,13 @@ class SoundMenuControls(dbus.service.Object):
             title = "Title Uknown"
         if album_art is None:
             album_art = ""
+        if filename is None:
+            filename = ""
 
-        self.__meta_data = dbus.Dictionary({"xesam:album":album,
+        self.__meta_data = dbus.Dictionary({
+                            "mpris:trackid":trackid,
+                            "xesam:url":filename,
+                            "xesam:album":album,
                             "xesam:title":title,
                             "xesam:artist":artists,
                             "mpris:artUrl":album_art,

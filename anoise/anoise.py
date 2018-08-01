@@ -92,7 +92,7 @@ class ANoise:
     def _sound_menu_play(self):
         """Play"""
         self.is_playing = True # Need to overwrite this for an issue with autstart
-        self.sound_menu.song_changed('', '', self.noise.get_name(), self.noise.get_icon_uri())
+        self.sound_menu.song_changed(self.noise.get_current_index(), '', '', self.noise.get_name(), self.noise.get_icon_uri(), self.noise.get_current_filename_uri())
         self.player.set_state(Gst.State.PLAYING)
         self.sound_menu.signal_playing()
 
@@ -113,7 +113,7 @@ class ANoise:
         # From pause?
         self.player.set_state(Gst.State.READY)
         if not self.is_playing:
-            self.sound_menu.song_changed('', '', self.noise.get_name(), self.noise.get_icon_uri())
+            self.sound_menu.song_changed(self.noise.get_current_index(), '', '', self.noise.get_name(), self.noise.get_icon_uri(), self.noise.get_current_filename_uri())
             self.sound_menu.signal_playing()
             self.sound_menu.signal_paused()
         # Set new sound
