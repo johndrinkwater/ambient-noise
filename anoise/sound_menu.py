@@ -161,6 +161,9 @@ class SoundMenuControls(dbus.service.Object):
                             "mpris:artUrl":album_art,
                             }, "sv", variant_level=1)
 
+        d = dbus.Dictionary({"Metadata":self.__meta_data}, "sv",variant_level=1)
+        self.PropertiesChanged("org.mpris.MediaPlayer2.Player",d,[])
+
 
     @dbus.service.method('org.mpris.MediaPlayer2')
     def Raise(self):
@@ -398,8 +401,8 @@ class SoundMenuControls(dbus.service.Object):
 
         """
         self.__playback_status = "Playing"
-        d = dbus.Dictionary({"PlaybackStatus":self.__playback_status, "LoopStatus":self.__loop_status,
-                             "Metadata":self.__meta_data}, "sv",variant_level=1)
+        d = dbus.Dictionary({"PlaybackStatus":self.__playback_status, "LoopStatus":self.__loop_status},
+                             "sv",variant_level=1)
         self.PropertiesChanged("org.mpris.MediaPlayer2.Player",d,[])
 
     def signal_paused(self):
@@ -413,8 +416,8 @@ class SoundMenuControls(dbus.service.Object):
         """
 
         self.__playback_status = "Paused"
-        d = dbus.Dictionary({"PlaybackStatus":self.__playback_status}, "LoopStatus":self.__loop_status,
-                                    "sv",variant_level=1)
+        d = dbus.Dictionary({"PlaybackStatus":self.__playback_status, "LoopStatus":self.__loop_status},
+                             "sv", variant_level=1)
         self.PropertiesChanged("org.mpris.MediaPlayer2.Player",d,[])
 
 

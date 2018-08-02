@@ -115,17 +115,15 @@ class ANoise:
             self.noise.set_previous()
         # From pause?
         self.player.set_state(Gst.State.READY)
-        if not self.is_playing:
-            self.sound_menu.song_changed(self.noise.get_current_index(), '', '', self.noise.get_name(),
-                urllib.parse.quote(self.noise.get_icon_uri(), ':/'),
-                urllib.parse.quote(self.noise.get_current_filename_uri(), ':/'))
-            self.sound_menu.signal_playing()
-            self.sound_menu.signal_paused()
         # Set new sound
         self.player.set_property('uri', self.noise.get_current_filename_uri())
         # Play
         if self.is_playing:
             self._sound_menu_play()
+        else:
+            self.sound_menu.song_changed(self.noise.get_current_index(), '', '', self.noise.get_name(),
+                urllib.parse.quote(self.noise.get_icon_uri(), ':/'),
+                urllib.parse.quote(self.noise.get_current_filename_uri(), ':/'))
 
     def _sound_menu_previous(self):
         """Previous"""
