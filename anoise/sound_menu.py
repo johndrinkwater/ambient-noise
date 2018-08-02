@@ -120,6 +120,7 @@ class SoundMenuControls(dbus.service.Object):
         bus_name = dbus.service.BusName(bus_str, bus=dbus.SessionBus())
         dbus.service.Object.__init__(self, bus_name, "/org/mpris/MediaPlayer2")
         self.__playback_status = "Stopped"
+        self.__loop_status = "Track"
 
         self.song_changed( 0 )
 
@@ -286,6 +287,19 @@ class SoundMenuControls(dbus.service.Object):
         return self.__playback_status
 
     @property
+    def LoopStatus(self):
+        """LoopStatus
+
+        Current status "None", "Track", or "Playlist"
+
+        This property is only used by the Sound Menu, and should not
+        be overriden or called directly.
+
+        """
+
+        return self.__loop_status
+
+    @property
     def Metadata(self):
         """Metadata
 
@@ -384,8 +398,8 @@ class SoundMenuControls(dbus.service.Object):
 
         """
         self.__playback_status = "Playing"
-        d = dbus.Dictionary({"PlaybackStatus":self.__playback_status, "Metadata":self.__meta_data},
-                                    "sv",variant_level=1)
+        d = dbus.Dictionary({"PlaybackStatus":self.__playback_status, "LoopStatus":self.__loop_status,
+                             "Metadata":self.__meta_data}, "sv",variant_level=1)
         self.PropertiesChanged("org.mpris.MediaPlayer2.Player",d,[])
 
     def signal_paused(self):
@@ -399,7 +413,7 @@ class SoundMenuControls(dbus.service.Object):
         """
 
         self.__playback_status = "Paused"
-        d = dbus.Dictionary({"PlaybackStatus":self.__playback_status},
+        d = dbus.Dictionary({"PlaybackStatus":self.__playback_status}, "LoopStatus":self.__loop_status,
                                     "sv",variant_level=1)
         self.PropertiesChanged("org.mpris.MediaPlayer2.Player",d,[])
 
