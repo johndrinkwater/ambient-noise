@@ -148,7 +148,6 @@ class ANoise:
         self.win_preferences.set_show_timer()
         self._sound_menu_pause()
 
-
 if __name__ == "__main__":
     Lock()
     os.environ[ 'PULSE_PROP_application.icon_name' ] = "anoise"

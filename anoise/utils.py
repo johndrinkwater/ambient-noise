@@ -140,7 +140,6 @@ class Noise:
 
         return ''.join(['file://', filename])
 
-
     def _get_cfg_last(self, max):
         current = 0
         try:
