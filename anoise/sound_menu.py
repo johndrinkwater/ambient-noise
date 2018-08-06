@@ -139,9 +139,9 @@ class SoundMenuControls(dbus.service.Object):
         if artists is None:
             artists = ["Artist Unknown"]
         if album is None:
-            album = "Album Uknown"
+            album = "Album Unknown"
         if title is None:
-            title = "Title Uknown"
+            title = "Title Unknown"
         if album_art is None:
             album_art = ""
         if filename is None:
