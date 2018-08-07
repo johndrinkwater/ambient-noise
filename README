@@ -9,7 +9,7 @@ An ambient noise player
 HOW DO I INSTALL & RUN IT?
 ==========================
 From the code (take a look to the dependencies):
-    $ git clone https://github.com/johndrinkwater/anoise.git && cd anoise && sudo python setup.py install --prefix=/usr
+    $ git clone https://github.com/johndrinkwater/ambient-noise.git && cd anoise && sudo python setup.py install --prefix=/usr
 
 
 DEPENDENCIES
