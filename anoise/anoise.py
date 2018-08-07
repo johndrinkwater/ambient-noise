@@ -77,7 +77,7 @@ class ANoise:
         self.sound_menu._sound_menu_raise      = self._sound_menu_raise
 
         # Autostart when click on sound indicator icon
-        threading.Timer(2, self._sound_menu_play).start()
+        threading.Timer(1, self._sound_menu_play).start()
 
     def _loop(self, message):
         """Start again the same sound in the EOS"""
