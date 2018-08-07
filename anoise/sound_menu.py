@@ -98,7 +98,7 @@ class SoundMenuControls(dbus.service.Object):
 
     """
 
-    def __init__(self, desktop_name):
+    def __init__(self, identity, desktop_name):
         """
         Creates a SoundMenuControls object.
 
@@ -106,11 +106,13 @@ class SoundMenuControls(dbus.service.Object):
         typically by calling DBusGMainLoop(set_as_default=True).
 
         arguments:
-        desktop_name: The name of the desktop file for the application,
+        identity: The name of the application,
+        desktop_name: The XDG name and .desktop filename,
         such as, "simple-player" to refer to the file: simple-player.desktop.
 
         """
         self.desktop_name = desktop_name
+        self.identity = identity
         bus_str = """org.mpris.MediaPlayer2.%s""" % desktop_name
         bus_name = dbus.service.BusName(bus_str, bus=dbus.SessionBus())
         dbus.service.Object.__init__(self, bus_name, "/org/mpris/MediaPlayer2")
@@ -228,7 +230,7 @@ class SoundMenuControls(dbus.service.Object):
             'CanGoPrevious':True,
             'HasTrackList': False,
             'DesktopEntry': self.desktop_name,
-            'Identity':     'ANoise',
+            'Identity':     self.identity,
         } # Fixed #1440061
 
     @property

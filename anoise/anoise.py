@@ -53,7 +53,7 @@ class ANoise:
         DBusGMainLoop(set_as_default=True)
         Gst.init(None)
 
-        self.sound_menu = SoundMenuControls('anoise')
+        self.sound_menu = SoundMenuControls('Ambient Noise', 'anoise')
         self.noise = Noise()
         self.win_preferences = Preferences(self)
 
