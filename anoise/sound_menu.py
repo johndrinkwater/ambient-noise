@@ -259,12 +259,25 @@ class SoundMenuControls(dbus.service.Object):
         return True
 
     @property
+    def Identity(self):
+        """Identity
+
+        The name of the application
+
+        This property is only used by the Sound Menu, and should not
+        be overridden or called directly.
+
+        """
+
+        return self.identity
+
+    @property
     def DesktopEntry(self):
         """DesktopEntry
 
         The name of the desktop file.
 
-        This propert is only used by the Sound Menu, and should not
+        This property is only used by the Sound Menu, and should not
         be overridden or called directly.
 
         """
