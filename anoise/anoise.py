@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # ANoise 0.0.29 (Ambient Noise)
 # Copyright (C) 2015 Marcos Alvarez Costales https://launchpad.net/~costales
