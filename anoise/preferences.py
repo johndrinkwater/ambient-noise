@@ -39,7 +39,7 @@ class Preferences:
         self.player = player
         builder = Gtk.Builder()
 
-        builder.add_from_file('/usr/share/anoise/preferences.ui')
+        builder.add_from_file(os.path.join(os.path.split(os.path.abspath(__file__))[0], 'preferences.ui'))
         self.win_preferences = builder.get_object('preferences_win')
         self.adjustment   = builder.get_object('adjustment_timer')
         self.sp_timer     = builder.get_object('spin_timer')
