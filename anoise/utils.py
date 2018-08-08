@@ -72,14 +72,12 @@ class Noise:
         self.CFG_FILE  = os.path.join(self.CFG_DIR, 'config')
         self.SOUND_TYPES = ['*.ogg','*.mp3','*.wav','*.webm']
         self.SOUND_PATHS = []
-        sound_paths = [
+        self.DEFAULT_PATHS = [
             os.path.join(os.path.split(os.path.abspath(__file__))[0], 'sounds'),
             os.path.join(self.DATA_DIR)
         ]
-        for sound_path in sound_paths:
-            if os.path.exists( sound_path ):
-                  self.SOUND_PATHS.append( sound_path )
-
+        self.PATH_WATCHER = NoisePathWatcher( self )
+        self.PATH_OBSERVER = None
 
         if not os.path.exists(self.CFG_DIR):
             try:
@@ -89,11 +87,7 @@ class Noise:
             except:
                 pass
 
-        watcher = NoisePathWatcher( self )
-        self.PATH_WATCHER = Observer()
-        for sound_path in self.SOUND_PATHS:
-            self.PATH_WATCHER.schedule(watcher, path=sound_path, recursive=False)
-        self.PATH_WATCHER.start()
+        self.refresh_sound_file_observers()
 
         try:
             self.BASE_ICON = Gtk.IconTheme.get_default().lookup_icon('anoise', 48, 0).get_filename()
@@ -101,6 +95,21 @@ class Noise:
             self.BASE_ICON = ''
 
         self.refresh_sound_files()
+
+    def refresh_sound_file_observers(self):
+        self.SOUND_PATHS = []
+        for sound_path in self.DEFAULT_PATHS:
+            if os.path.exists( sound_path ):
+                  self.SOUND_PATHS.append( sound_path )
+
+        if self.PATH_OBSERVER is not None:
+            self.PATH_OBSERVER.unschedule_all()
+        else:
+            self.PATH_OBSERVER = Observer()
+            self.PATH_OBSERVER.start()
+
+        for sound_path in self.SOUND_PATHS:
+            self.PATH_OBSERVER.schedule(self.PATH_WATCHER, path=sound_path, recursive=False)
 
     def refresh_sound_files(self):
         """Get all current files in sounds paths"""
