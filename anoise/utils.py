@@ -71,15 +71,15 @@ class Noise:
         self.DATA_DIR  = os.path.join(BaseDirectory.xdg_data_home, 'anoise')
         self.CFG_FILE  = os.path.join(self.CFG_DIR, 'config')
         self.SOUND_TYPES = ['*.ogg','*.mp3','*.wav','*.webm']
-        self.SOUND_PATHS = [
+        self.SOUND_PATHS = []
+        sound_paths = [
             os.path.join(os.path.split(os.path.abspath(__file__))[0], 'sounds'),
             os.path.join(self.DATA_DIR)
         ]
+        for sound_path in sound_paths:
+            if os.path.exists( sound_path ):
+                  self.SOUND_PATHS.append( sound_path )
 
-        watcher = NoisePathWatcher( self )
-        self.PATH_WATCHER = Observer()
-        self.PATH_WATCHER.schedule(watcher, path=self.DATA_DIR, recursive=False)
-        self.PATH_WATCHER.start()
 
         if not os.path.exists(self.CFG_DIR):
             try:
@@ -89,10 +89,17 @@ class Noise:
             except:
                 pass
 
+        watcher = NoisePathWatcher( self )
+        self.PATH_WATCHER = Observer()
+        for sound_path in self.SOUND_PATHS:
+            self.PATH_WATCHER.schedule(watcher, path=sound_path, recursive=False)
+        self.PATH_WATCHER.start()
+
         try:
             self.BASE_ICON = Gtk.IconTheme.get_default().lookup_icon('anoise', 48, 0).get_filename()
         except:
             self.BASE_ICON = ''
+
         self.refresh_sound_files()
 
     def refresh_sound_files(self):
