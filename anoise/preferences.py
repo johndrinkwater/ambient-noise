@@ -119,6 +119,7 @@ class Preferences:
                 pass
             except:
                 pass
+        self.player.noise.refresh_sound_file_observers( )
 
         if os.path.isdir(self.DATA_DIR):
             sound_file_uri = ''.join(['file://', self.DATA_DIR])
