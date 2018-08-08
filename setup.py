@@ -21,10 +21,10 @@
 import os, sys, glob, DistUtilsExtra.auto
 
 # Create data files
-data = [ ('/usr/share/anoise',                      glob.glob('anoise/*')),
-         ('/usr/share/icons/hicolor/scalable/apps', glob.glob('icons/hicolor/scalable/apps/*.svg')),
-         ('/usr/share/icons/hicolor/48x48/apps',    glob.glob('icons/hicolor/48x48/apps/*.png')),
-         ('/usr/share/icons/hicolor/16x16/apps',    glob.glob('icons/hicolor/16x16/apps/*.png'))]
+data = [ ('share/anoise',                      glob.glob('anoise/*')),
+         ('share/icons/hicolor/scalable/apps', glob.glob('icons/hicolor/scalable/apps/*.svg')),
+         ('share/icons/hicolor/48x48/apps',    glob.glob('icons/hicolor/48x48/apps/*.png')),
+         ('share/icons/hicolor/16x16/apps',    glob.glob('icons/hicolor/16x16/apps/*.png'))]
 
 # Setup stage
 DistUtilsExtra.auto.setup(
