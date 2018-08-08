@@ -72,8 +72,8 @@ class Noise:
         self.CFG_FILE  = os.path.join(self.CFG_DIR, 'config')
         self.SOUND_TYPES = ['*.ogg','*.mp3','*.wav','*.webm']
         self.SOUND_PATHS = [
-            os.path.join(os.path.split(os.path.abspath(__file__))[0], 'sounds', '*.*'),
-            os.path.join(self.DATA_DIR, '*.*')
+            os.path.join(os.path.split(os.path.abspath(__file__))[0], 'sounds'),
+            os.path.join(self.DATA_DIR)
         ]
 
         watcher = NoisePathWatcher( self )
@@ -100,7 +100,7 @@ class Noise:
         all_files = []
 
         for sound_files in self.SOUND_PATHS:
-            available_sounds = glob.glob(sound_files)
+            available_sounds = glob.glob(os.path.join(sound_files, '*.*'))
             for sound in available_sounds:
                 if ('*' + os.path.splitext(sound)[1].lower()) in self.SOUND_TYPES:
                     all_files.append(sound)
