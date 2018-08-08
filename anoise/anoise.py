@@ -106,7 +106,6 @@ class ANoise:
 
     def _set_new_play(self, what):
         """Next or Previous"""
-        self.noise.refresh_sound_files()
         # Get Next/Previous
         if what == 'next':
             self.noise.set_next()
