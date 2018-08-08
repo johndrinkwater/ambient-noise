@@ -17,6 +17,8 @@
 # for more information.
 
 import os, glob, sys, socket, operator, gi
+from watchdog.observers import Observer
+from watchdog.events import PatternMatchingEventHandler
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 from xdg import BaseDirectory
@@ -43,16 +45,41 @@ class Lock:
         except:
             pass
 
+class NoisePathWatcher(PatternMatchingEventHandler):
+
+    def __init__(self, noiseref):
+        super(NoisePathWatcher, self).__init__()
+        self._callback = noiseref
+        self._patterns = noiseref.SOUND_TYPES
+
+    def on_deleted(self, event):
+        # file was removed from DATA_DIR that we support, so update listing
+        self._callback.refresh_sound_files()
+
+    def on_created(self, event):
+        # file was copied into DATA_DIR that we support, so update listing
+        self._callback.refresh_sound_files()
+
+    def on_moved(self, event):
+        # file was renamed inside DATA_DIR that we support, so update listing
+        self._callback.refresh_sound_files()
+
 class Noise:
     """Manage access to noises"""
     def __init__(self):
         self.CFG_DIR   = os.path.join(BaseDirectory.xdg_config_home, 'anoise')
         self.DATA_DIR  = os.path.join(BaseDirectory.xdg_data_home, 'anoise')
         self.CFG_FILE  = os.path.join(self.CFG_DIR, 'config')
-        self.SOUND_PATHS = [
-            os.path.join(os.path.split(os.path.abspath(__file__))[0], 'sounds', '*.*'),
-            os.path.join(self.DATA_DIR, '*.*')
+        self.SOUND_TYPES = ['*.ogg','*.mp3','*.wav','*.webm']
+        self.SOUND_PATHS = []
+        sound_paths = [
+            os.path.join(os.path.split(os.path.abspath(__file__))[0], 'sounds'),
+            os.path.join(self.DATA_DIR)
         ]
+        for sound_path in sound_paths:
+            if os.path.exists( sound_path ):
+                  self.SOUND_PATHS.append( sound_path )
+
 
         if not os.path.exists(self.CFG_DIR):
             try:
@@ -62,21 +89,27 @@ class Noise:
             except:
                 pass
 
+        watcher = NoisePathWatcher( self )
+        self.PATH_WATCHER = Observer()
+        for sound_path in self.SOUND_PATHS:
+            self.PATH_WATCHER.schedule(watcher, path=sound_path, recursive=False)
+        self.PATH_WATCHER.start()
+
         try:
             self.BASE_ICON = Gtk.IconTheme.get_default().lookup_icon('anoise', 48, 0).get_filename()
         except:
             self.BASE_ICON = ''
+
         self.refresh_sound_files()
 
     def refresh_sound_files(self):
         """Get all current files in sounds paths"""
         all_files = []
-        sound_types = ['.ogg','.mp3','.wav','.webm']
 
         for sound_files in self.SOUND_PATHS:
-            available_sounds = glob.glob(sound_files)
+            available_sounds = glob.glob(os.path.join(sound_files, '*.*'))
             for sound in available_sounds:
-                if os.path.splitext(sound)[1].lower() in sound_types:
+                if ('*' + os.path.splitext(sound)[1].lower()) in self.SOUND_TYPES:
                     all_files.append(sound)
 
         if not len(all_files):
