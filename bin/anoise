@@ -1,3 +1,17 @@
-#!/bin/bash
-python3 /usr/share/anoise/anoise.py
+#!/usr/bin/env python3
+
+import anoise
+import sys, site, os, subprocess
+
+print (sys.executable)
+print (sys.prefix)
+print (sys.path)
+print (sys.exec_prefix)
+makenoise =  os.path.join(sys.exec_prefix, 'share/anoise', 'anoise.py')
+print ( makenoise )
+makenoise =  os.path.join(site.USER_BASE, 'share/anoise', 'anoise.py')
+print ( makenoise )
+
+subprocess.Popen([ makenoise ], shell=False)
+# python3 /usr/share/anoise/anoise.py
 
