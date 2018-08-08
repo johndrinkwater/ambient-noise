@@ -17,6 +17,8 @@
 # for more information.
 
 import os, glob, sys, socket, operator, gi
+from watchdog.observers import Observer
+from watchdog.events import PatternMatchingEventHandler
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 from xdg import BaseDirectory
@@ -43,6 +45,25 @@ class Lock:
         except:
             pass
 
+class NoisePathWatcher(PatternMatchingEventHandler):
+    patterns = ['*.ogg','*.mp3','*.wav','*.webm']
+
+    def __init__(self, noiseref):
+        super(NoisePathWatcher, self).__init__()
+        self._callback = noiseref
+
+    def on_deleted(self, event):
+        # file was removed from DATA_DIR that we support, so update listing
+        self._callback.refresh_sound_files()
+
+    def on_created(self, event):
+        # file was copied into DATA_DIR that we support, so update listing
+        self._callback.refresh_sound_files()
+
+    def on_moved(self, event):
+        # file was renamed inside DATA_DIR that we support, so update listing
+        self._callback.refresh_sound_files()
+
 class Noise:
     """Manage access to noises"""
     def __init__(self):
@@ -53,6 +74,11 @@ class Noise:
             os.path.join(os.path.split(os.path.abspath(__file__))[0], 'sounds', '*.*'),
             os.path.join(self.DATA_DIR, '*.*')
         ]
+
+        watcher = NoisePathWatcher( self )
+        self.PATH_WATCHER = Observer()
+        self.PATH_WATCHER.schedule(watcher, path=self.DATA_DIR, recursive=False)
+        self.PATH_WATCHER.start()
 
         if not os.path.exists(self.CFG_DIR):
             try:
