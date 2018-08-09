@@ -78,6 +78,8 @@ class Noise:
         ]
         self.PATH_WATCHER = NoisePathWatcher( self )
         self.PATH_OBSERVER = None
+        self.noises = {}
+        self.current = self._get_cfg_last()
 
         if not os.path.exists(self.CFG_DIR):
             try:
@@ -114,6 +116,13 @@ class Noise:
     def refresh_sound_files(self):
         """Get all current files in sounds paths"""
         all_files = []
+        save_current_filename = None
+
+        if self.noises:
+            try:
+                save_current_filename = self.noises[self.current][1]
+            except:
+                pass
 
         for sound_files in self.SOUND_PATHS:
             available_sounds = glob.glob(os.path.join(sound_files, '*.*'))
@@ -129,11 +138,17 @@ class Noise:
             self.noises[self.get_name(noise)] = noise
 
         self.noises = sorted(self.noises.items(), key=operator.itemgetter(0))
-
         self.max = len(self.noises) - 1
-        self.current = self._get_cfg_last(self.max)
+
+        # we can still arrive as this point if user deleted noises since last start
         if self.current > self.max:
             self.current = 0
+
+        if save_current_filename:
+            new_index = [self.noises.index(x) for x in self.noises if x[1] == save_current_filename]
+            if new_index:
+                self.current = new_index[0]
+                self._set_cfg_current()
 
     def get_current_index(self):
         """Get current sound index in tracklist"""
@@ -182,13 +197,11 @@ class Noise:
 
         return ''.join(['file://', filename])
 
-    def _get_cfg_last(self, max):
+    def _get_cfg_last(self):
         current = 0
         try:
             with open (self.CFG_FILE, "r") as myfile:
                 current=int(myfile.readlines()[0])
-                if current > max:
-                    current = 0
         except:
             pass
         return current
