@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-09 15:56+0100\n"
+"POT-Creation-Date: 2018-08-09 16:10+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,6 +53,18 @@ msgstr ""
 msgid "Wind"
 msgstr ""
 
+#: ../anoise/utils.py:139
+msgid "No noise files found"
+msgstr ""
+
+#: ../anoise/preferences.py:105
+msgid "ANoise will stop at"
+msgstr ""
+
+#: ../anoise/preferences.py:111 ../anoise/preferences.ui.h:2
+msgid "Stop in"
+msgstr ""
+
 #: ../anoise.desktop.in.h:1
 msgid "Ambient Noise"
 msgstr ""
@@ -63,10 +75,6 @@ msgstr ""
 
 #: ../anoise/preferences.ui.h:1
 msgid "ANoise Preferences"
-msgstr ""
-
-#: ../anoise/preferences.ui.h:2
-msgid "Stop in"
 msgstr ""
 
 #: ../anoise/preferences.ui.h:3

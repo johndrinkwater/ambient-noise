@@ -133,7 +133,7 @@ class Noise:
                     all_files.append(sound)
 
         if not len(all_files):
-            sys.exit('No noise files found')
+            sys.exit(_('No noise files found'))
 
         self.noises = {}
         for noise in all_files:
