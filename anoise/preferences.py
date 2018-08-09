@@ -112,17 +112,22 @@ class Preferences:
             self._restore_window_size()
 
     def on_btn_show_datadir_clicked(self, widget, data=None):
-        if not os.path.exists(self.DATA_DIR):
+        sound_file_location = os.path.join(os.getenv('HOME'), 'ANoise')
+        if not os.path.exists(sound_file_location):
+            sound_file_location = os.path.join(os.getenv('HOME'), '.ANoise')
+        if not os.path.exists(sound_file_location):
+            sound_file_location = self.DATA_DIR
+        if not os.path.exists(sound_file_location):
             try:
-                os.makedirs(self.DATA_DIR)
+                os.makedirs(sound_file_location)
             except OSError as exception:
                 pass
             except:
                 pass
         self.player.noise.refresh_sound_file_observers( )
 
-        if os.path.isdir(self.DATA_DIR):
-            sound_file_uri = ''.join(['file://', self.DATA_DIR])
+        if os.path.isdir(sound_file_location):
+            sound_file_uri = ''.join(['file://', sound_file_location])
             webbrowser.open(sound_file_uri)
 
     def on_btn_show_noises_clicked(self, widget, data=None):

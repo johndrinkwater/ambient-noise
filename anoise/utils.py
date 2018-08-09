@@ -74,6 +74,8 @@ class Noise:
         self.SOUND_PATHS = []
         self.DEFAULT_PATHS = [
             os.path.join(os.path.split(os.path.abspath(__file__))[0], 'sounds'),
+            os.path.join(os.getenv('HOME'), '.ANoise'),
+            os.path.join(os.getenv('HOME'), 'ANoise'),
             os.path.join(self.DATA_DIR)
         ]
         self.PATH_WATCHER = NoisePathWatcher( self )
