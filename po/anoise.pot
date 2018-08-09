@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-30 15:39+0100\n"
+"POT-Creation-Date: 2018-08-09 15:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,39 +17,39 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../anoise/anoise.py:71
+#: ../anoise/anoise.py:70
 msgid "Coffee Shop"
 msgstr ""
 
-#: ../anoise/anoise.py:71
+#: ../anoise/anoise.py:70
 msgid "Fire"
 msgstr ""
 
-#: ../anoise/anoise.py:71
+#: ../anoise/anoise.py:70
 msgid "Forest"
 msgstr ""
 
-#: ../anoise/anoise.py:71
+#: ../anoise/anoise.py:70
 msgid "Night"
 msgstr ""
 
-#: ../anoise/anoise.py:71
+#: ../anoise/anoise.py:70
 msgid "Rain"
 msgstr ""
 
-#: ../anoise/anoise.py:71
+#: ../anoise/anoise.py:70
 msgid "River"
 msgstr ""
 
-#: ../anoise/anoise.py:71
+#: ../anoise/anoise.py:70
 msgid "Sea"
 msgstr ""
 
-#: ../anoise/anoise.py:71
+#: ../anoise/anoise.py:70
 msgid "Storm"
 msgstr ""
 
-#: ../anoise/anoise.py:71
+#: ../anoise/anoise.py:70
 msgid "Wind"
 msgstr ""
 
