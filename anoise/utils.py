@@ -148,6 +148,7 @@ class Noise:
             new_index = [self.noises.index(x) for x in self.noises if x[1] == save_current_filename]
             if new_index:
                 self.current = new_index[0]
+                self._set_cfg_current()
 
     def get_current_index(self):
         """Get current sound index in tracklist"""
