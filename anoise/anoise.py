@@ -104,6 +104,13 @@ class ANoise:
         """Called in the first click"""
         return self.is_playing
 
+    def _sound_menu_play_toggle(self, keypress = None, data = None):
+        """Play toggle, media keys have an expectation that play is a toggle"""
+        if self.is_playing:
+            self._sound_menu_pause('AudioPause')
+        else:
+            self._sound_menu_play('AudioPlay')
+
     def _sound_menu_play(self, keypress = None, data = None):
         """Play"""
         self.is_playing = True # Need to overwrite this for an issue with autstart
