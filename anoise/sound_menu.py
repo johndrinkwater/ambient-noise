@@ -54,7 +54,7 @@ or overridden by application code, only the Sound Menu.
 
 Other functions are designed to be called as needed by the
 implementation to inform the Sound Menu of changes. These functions
-include signal_playing, signal_paused, and song_changed.
+include signal_playing, signal_stopped, signal_paused, and song_changed.
 
 Using
 #create the Sound Menu object and reassign functions
@@ -71,6 +71,7 @@ sound_menu.song_changed(artist,album,title)
 
 #when the player changes playback state, it should inform the Sound Menu
 sound_menu.signal_playing()
+sound_menu.signal_stopped()
 sound_menu.signal_paused()
 
 Configuring
@@ -417,6 +418,21 @@ class SoundMenuControls(dbus.service.Object):
         """
 
         self.__playback_status = "Paused"
+        d = dbus.Dictionary({"PlaybackStatus":self.__playback_status, "LoopStatus":self.__loop_status},
+                             "sv", variant_level=1)
+        self.PropertiesChanged("org.mpris.MediaPlayer2.Player",d,[])
+
+    def signal_stopped(self):
+        """signal_stopped - Tell the Sound Menu that the player has
+        been stopped. Implementations many need to call this function in order
+        to keep the Sound Menu in synch.
+
+        arguments:
+            none
+
+        """
+
+        self.__playback_status = "Stopped"
         d = dbus.Dictionary({"PlaybackStatus":self.__playback_status, "LoopStatus":self.__loop_status},
                              "sv", variant_level=1)
         self.PropertiesChanged("org.mpris.MediaPlayer2.Player",d,[])
