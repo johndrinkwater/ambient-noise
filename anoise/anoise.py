@@ -92,6 +92,7 @@ class ANoise:
         self.sound_menu._sound_menu_next       = self._sound_menu_next
         self.sound_menu._sound_menu_previous   = self._sound_menu_previous
         self.sound_menu._sound_menu_raise      = self._sound_menu_raise
+        self.sound_menu._sound_menu_play_toggle= self._sound_menu_play_toggle
 
         # Autostart when click on sound indicator icon
         threading.Timer(1, self._sound_menu_play).start()

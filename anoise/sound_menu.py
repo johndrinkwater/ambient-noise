@@ -384,13 +384,23 @@ class SoundMenuControls(dbus.service.Object):
         function.
 
         """
+        self._sound_menu_play_toggle()
 
-        if not self._sound_menu_is_playing():
-            self._sound_menu_play()
-            self.signal_playing()
-        else:
-            self._sound_menu_pause()
-            self.signal_paused()
+    def _sound_menu_play_toggle(self):
+        """_sound_menu_play_toggle
+
+        This function is called when the user has clicked
+        the play/pause button in the Sound Indicator. Implementations
+        should override this function in order to a function to
+        advance to the next track. Implementations should call
+        song_changed() and  sound_menu.signal_playing() in order to
+        keep the song information in sync.
+
+        The default implementation of this function has no effect.
+
+        """
+
+        pass  
 
     def signal_playing(self):
         """signal_playing - Tell the Sound Menu that the player has
