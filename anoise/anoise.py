@@ -114,6 +114,12 @@ class ANoise:
         self.player.set_state(Gst.State.PLAYING)
         self.sound_menu.signal_playing()
 
+    def _sound_menu_stop(self, keypress = None, data = None):
+        """Stop, different from pause in that it sets the pointer of the track to the start again"""
+        self.is_playing = False
+        self.player.set_state(Gst.State.READY) # assuming this is akin to stop?
+        self.sound_menu.signal_stopped()
+
     def _sound_menu_pause(self, keypress = None, data = None):
         """Pause"""
         self.is_playing = False # Need to overwrite this for an issue with autstart
