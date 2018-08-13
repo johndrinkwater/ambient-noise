@@ -63,8 +63,8 @@ class ANoise:
         try:
             self.keybinder = Keybinder
             self.keybinder.init()
-            if self.keybinder.bind('AudioPlay', self._sound_menu_play, None):
-                self.keybinder.bind('AudioStop', self._sound_menu_pause, None)
+            if self.keybinder.bind('AudioPlay', self._sound_menu_play_toggle, None):
+                self.keybinder.bind('AudioStop', self._sound_menu_stop, None)
                 self.keybinder.bind('AudioPause', self._sound_menu_pause, None)
                 self.keybinder.bind('AudioNext', self._sound_menu_next, None)
                 self.keybinder.bind('AudioPrev', self._sound_menu_previous, None)
