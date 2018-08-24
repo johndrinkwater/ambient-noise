@@ -50,7 +50,7 @@ else:
 class ANoise:
     """Control the sound indicator"""
     def __init__(self):
-        # These 3 are need
+        # These 3 are needed
         GObject.threads_init()
         DBusGMainLoop(set_as_default=True)
         Gst.init(None)
