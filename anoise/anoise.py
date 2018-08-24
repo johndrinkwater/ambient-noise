@@ -21,9 +21,8 @@ import gi, os, threading
 from six.moves import urllib
 gi.require_version('Gtk', '3.0')
 gi.require_version('Gst', '1.0')
-from gi.repository import Gtk, GObject, Gst
 gi.require_version('Keybinder', '3.0')
-from gi.repository import Keybinder
+from gi.repository import Gtk, GLib, GObject, Gst, Keybinder
 from dbus.mainloop.glib import DBusGMainLoop
 from utils import *
 from sound_menu import SoundMenuControls
@@ -55,7 +54,7 @@ class ANoise:
         GObject.threads_init()
         DBusGMainLoop(set_as_default=True)
         Gst.init(None)
-
+        GLib.set_application_name(_('Ambient Noise'))
         self.sound_menu = SoundMenuControls('Ambient Noise', 'anoise')
         self.noise = Noise()
         self.win_preferences = Preferences(self)
@@ -176,6 +175,7 @@ class ANoise:
 
 if __name__ == "__main__":
     Lock()
+    # libcanberra named properties
     os.environ[ 'PULSE_PROP_application.icon_name' ] = "anoise"
     os.environ[ 'PULSE_PROP_media.role' ] = "music"
     anoise = ANoise()
